@@ -1,159 +1,135 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-home",
+      "id": "hero",
       "description": "Abstract technology background",
       "imageUrl": "https://picsum.photos/seed/1/1920/1080",
       "imageHint": "technology abstract"
     },
     {
-      "id": "about-graphic",
+      "id": "about",
       "description": "Students collaborating on a tech project",
       "imageUrl": "https://picsum.photos/seed/2/600/400",
       "imageHint": "students collaborating"
     },
     {
-      "id": "event-1",
+      "id": "event1",
       "description": "Workshop on Artificial Intelligence",
       "imageUrl": "https://images.unsplash.com/photo-1681731059898-72407df8431a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxBSSUyMHdvcmtzaG9wfGVufDB8fHx8MTc1OTc3ODEyMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "AI workshop"
     },
     {
-      "id": "event-2",
+      "id": "event2",
       "description": "Seminar on Blockchain Technology",
       "imageUrl": "https://picsum.photos/seed/4/400/250",
       "imageHint": "blockchain seminar"
     },
     {
-      "id": "event-3",
+      "id": "event3",
       "description": "Coding competition hackathon",
       "imageUrl": "https://images.unsplash.com/photo-1649451844813-3130d6f42f8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2RpbmclMjBjb21wZXRpdGlvbnxlbnwwfHx8fDE3NTk3NjAxNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "coding competition"
     },
     {
-      "id": "event-4",
+      "id": "event4",
       "description": "Webinar on Cybersecurity",
       "imageUrl": "https://picsum.photos/seed/6/400/250",
       "imageHint": "cybersecurity webinar"
     },
     {
-      "id": "event-5",
+      "id": "event5",
       "description": "Past event on Robotics",
       "imageUrl": "https://picsum.photos/seed/7/400/250",
       "imageHint": "robotics workshop"
     },
     {
-      "id": "event-6",
+      "id": "event6",
       "description": "Past event on IoT",
       "imageUrl": "https://picsum.photos/seed/8/400/250",
       "imageHint": "IoT seminar"
     },
     {
-      "id": "gallery-album-1",
+      "id": "gallery1",
       "description": "Photos from Annual Tech Fest 2023",
       "imageUrl": "https://picsum.photos/seed/9/400/300",
       "imageHint": "tech festival"
     },
     {
-      "id": "gallery-album-2",
+      "id": "gallery2",
       "description": "AI Workshop September 2023",
       "imageUrl": "https://images.unsplash.com/photo-1579618215542-2ed5e10b65ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxBSSUyMHdvcmtzaG9wfGVufDB8fHx8MTc1OTc3ODEyMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "AI workshop"
     },
     {
-      "id": "gallery-album-3",
+      "id": "gallery3",
       "description": "IEEE Day Celebrations",
       "imageUrl": "https://picsum.photos/seed/11/400/300",
       "imageHint": "celebration event"
     },
     {
-      "id": "gallery-album-4",
+      "id": "gallery4",
       "description": "Industrial Visit to Tech Park",
       "imageUrl": "https://picsum.photos/seed/12/400/300",
       "imageHint": "industrial visit"
     },
     {
-      "id": "gallery-album-5",
+      "id": "gallery5",
       "description": "Guest Lecture Series",
       "imageUrl": "https://picsum.photos/seed/13/400/300",
       "imageHint": "lecture hall"
     },
     {
-      "id": "gallery-album-6",
+      "id": "gallery6",
       "description": "Community Outreach Program",
       "imageUrl": "https://picsum.photos/seed/14/400/300",
       "imageHint": "community outreach"
     },
     {
-      "id": "team-member-1",
+      "id": "team1",
       "description": "Profile photo of team member 1",
-      "imageUrl": "https://picsum.photos/seed/15/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704d",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-2",
+      "id": "team2",
       "description": "Profile photo of team member 2",
-      "imageUrl": "https://picsum.photos/seed/16/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704e",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-3",
+      "id": "team3",
       "description": "Profile photo of team member 3",
-      "imageUrl": "https://picsum.photos/seed/17/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704f",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-4",
+      "id": "team4",
       "description": "Profile photo of team member 4",
-      "imageUrl": "https://picsum.photos/seed/18/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704a",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-5",
+      "id": "team5",
       "description": "Profile photo of team member 5",
-      "imageUrl": "https://picsum.photos/seed/19/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704b",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-6",
+      "id": "team6",
       "description": "Profile photo of team member 6",
-      "imageUrl": "https://picsum.photos/seed/20/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e29026704c",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-7",
+      "id": "team7",
       "description": "Profile photo of team member 7",
-      "imageUrl": "https://picsum.photos/seed/21/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e290267041",
       "imageHint": "professional headshot"
     },
     {
-      "id": "team-member-8",
+      "id": "team8",
       "description": "Profile photo of team member 8",
-      "imageUrl": "https://picsum.photos/seed/22/400/400",
-      "imageHint": "professional headshot"
-    },
-    {
-      "id": "team-member-9",
-      "description": "Profile photo of Vijaya Ahire",
-      "imageUrl": "https://picsum.photos/seed/23/400/400",
-      "imageHint": "professional headshot"
-    },
-    {
-      "id": "team-member-10",
-      "description": "Profile photo of Sonia Patel",
-      "imageUrl": "https://picsum.photos/seed/30/400/400",
-      "imageHint": "professional headshot"
-    },
-    {
-      "id": "team-member-11",
-      "description": "Profile photo of Rohan Joshi",
-      "imageUrl": "https://picsum.photos/seed/31/400/400",
-      "imageHint": "professional headshot"
-    },
-    {
-      "id": "team-member-12",
-      "description": "Profile photo of Pooja Reddy",
-      "imageUrl": "https://picsum.photos/seed/32/400/400",
+      "imageUrl": "https://i.pravatar.cc/400?u=a042581f4e290267042",
       "imageHint": "professional headshot"
     }
   ]

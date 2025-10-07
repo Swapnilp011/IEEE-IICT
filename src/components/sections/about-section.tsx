@@ -23,7 +23,7 @@ const stats = [
 ];
 
 export default function AboutSection() {
-  const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-graphic');
+  const aboutImage = PlaceHolderImages.find((p) => p.id === 'about');
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-10">

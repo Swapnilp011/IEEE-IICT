@@ -60,7 +60,7 @@ function AnimatedSection({ id, className, children }: { id: string; className?: 
 
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
