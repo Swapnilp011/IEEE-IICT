@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -15,7 +14,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
 import { useState, useEffect, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -96,12 +94,6 @@ export default function TeamSection() {
       <div className="mt-12">
         <Carousel
           setApi={setApi}
-          plugins={[
-            Autoplay({
-              delay: 4000,
-              stopOnInteraction: true,
-            }),
-          ]}
           opts={{
             align: "center",
             loop: true,
