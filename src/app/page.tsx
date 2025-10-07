@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { toast } from '@/hooks/use-toast';
 
 function AnimatedSection({ id, className, children }: { id: string; className?: string; children: React.ReactNode }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -65,6 +66,13 @@ export default function Home() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  
+  const handleBecomeMemberClick = () => {
+    toast({
+      title: "Recruitment Opening Soon!",
+      description: "Stay tuned for updates on when you can join the team.",
+    });
+  }
 
   return (
     <>
@@ -82,7 +90,7 @@ export default function Home() {
         )}
         <div className="relative container z-20 mx-auto flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
-            <span className="bg-gradient-to-r from-primary via-blue-600 to-cyan-500 bg-clip-text text-transparent">IEEE</span> Student Branch
+            <span className="text-primary">IEEE</span> Student Branch
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-foreground/80 drop-shadow-sm md:text-xl">
             IICT, MGM University: Fostering Tomorrow's Tech Leaders.
