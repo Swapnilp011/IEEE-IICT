@@ -76,7 +76,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Rahul Verma',
+    name: 'Atharva Kulkarni',
     role: 'Vice Chairperson',
     bio: 'Assists in managing branch activities and focuses on strategic growth and member engagement.',
     imageUrl: 'https://picsum.photos/seed/16/400/400',
@@ -85,7 +85,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '10',
-    name: 'Sonia Patel',
+    name: 'Palash Kale',
     role: 'Vice Chairperson',
     bio: 'Supports the chairperson and helps drive key initiatives within the student branch.',
     imageUrl: 'https://picsum.photos/seed/30/400/400',
@@ -94,7 +94,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '3',
-    name: 'Anika Singh',
+    name: 'Aarya Padalkar',
     role: 'Secretary',
     bio: 'Manages all documentation, communications, and organizational tasks for the student branch.',
     imageUrl: 'https://picsum.photos/seed/17/400/400',
@@ -104,7 +104,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '11',
-    name: 'Rohan Joshi',
+    name: 'Dyaneshwari Salunke',
     role: 'Secretary',
     bio: 'Keeps the branch organized and ensures smooth communication between all members and committees.',
     imageUrl: 'https://picsum.photos/seed/31/400/400',
@@ -113,7 +113,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '4',
-    name: 'Sameer Khan',
+    name: 'Syed Zaid',
     role: 'Treasurer',
     bio: 'Oversees the financial health of the branch, managing budgets for events and activities.',
     imageUrl: 'https://picsum.photos/seed/18/400/400',
@@ -122,7 +122,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '12',
-    name: 'Pooja Reddy',
+    name: 'Swapnil Mane',
     role: 'Treasurer',
     bio: 'Manages financial records and ensures transparent and efficient use of branch funds.',
     imageUrl: 'https://picsum.photos/seed/32/400/400',
