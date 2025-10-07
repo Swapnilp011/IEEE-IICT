@@ -33,29 +33,31 @@ export default function ContactSection() {
       </p>
 
       <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-16">
-        <div className="rounded-lg bg-muted/30 p-8">
+        <div className="rounded-lg bg-card border p-8">
           <h2 className="font-headline text-2xl font-semibold">Send us a Message</h2>
           <ContactForm />
         </div>
-        <div className="space-y-8">
-          <h2 className="font-headline text-2xl font-semibold">Contact Information</h2>
-          {contactInfo.map((item) => (
-            <div key={item.title} className="flex items-start gap-4">
-              <div className="flex-shrink-0 rounded-full bg-primary/10 p-3">
-                {item.icon}
+        <div className="rounded-lg bg-card border p-8">
+          <h2 className="font-headline text-2xl font-semibold mb-8">Contact Information</h2>
+          <div className="space-y-8">
+            {contactInfo.map((item) => (
+              <div key={item.title} className="flex items-start gap-4">
+                <div className="flex-shrink-0 rounded-full bg-primary/10 p-3">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  {item.href ? (
+                    <a href={item.href} className="text-muted-foreground hover:text-primary">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-muted-foreground">{item.value}</p>
+                  )}
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                {item.href ? (
-                  <a href={item.href} className="text-muted-foreground hover:text-primary">
-                    {item.value}
-                  </a>
-                ) : (
-                  <p className="text-muted-foreground">{item.value}</p>
-                )}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
