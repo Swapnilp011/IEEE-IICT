@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
@@ -64,6 +65,12 @@ export default function TeamSection() {
 
       <div className="mt-12">
         <Carousel
+          plugins={[
+            Autoplay({
+              delay: 2000,
+              stopOnInteraction: true,
+            }),
+          ]}
           opts={{
             align: "start",
             loop: true,
