@@ -92,7 +92,7 @@ export default function Home() {
           <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
             <span className="text-primary">IEEE</span> Student Branch
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-foreground/80 drop-shadow-sm md:text-xl">
+          <p className="mt-6 max-w-3xl mx-auto text-lg font-semibold text-foreground drop-shadow-md md:text-xl">
             IICT, MGM University: Fostering Tomorrow's Tech Leaders.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
