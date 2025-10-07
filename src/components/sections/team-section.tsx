@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { mockTeam } from '@/lib/mock-data';
 import type { TeamMember } from '@/lib/types';
 import { Card } from '@/components/ui/card';
-import { Linkedin, Github, Annoyed } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -43,12 +43,6 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
           <Linkedin className="h-5 w-5" />
           <span className="sr-only">LinkedIn</span>
         </Link>
-        {member.github && (
-          <Link href={member.github} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary">
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-        )}
       </div>
     </div>
   </Card>

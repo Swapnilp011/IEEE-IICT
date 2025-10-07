@@ -19,7 +19,6 @@ export type TeamMember = {
   imageUrl: string;
   imageHint: string;
   linkedin: string;
-  github?: string;
 };
 
 export type GalleryAlbum = {

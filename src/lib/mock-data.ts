@@ -73,7 +73,6 @@ export const mockTeam: TeamMember[] = [
     imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704e',
     imageHint: 'professional headshot',
     linkedin: '#',
-    github: '#',
   },
   {
     id: '2',
@@ -101,7 +100,6 @@ export const mockTeam: TeamMember[] = [
     imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704b',
     imageHint: 'professional headshot',
     linkedin: '#',
-    github: '#',
   },
   {
     id: '11',
