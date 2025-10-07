@@ -66,7 +66,7 @@ export const mockTeam: TeamMember[] = [
   },
   {
     id: '1',
-    name: 'Priya Sharma',
+    name: 'Basvaraj Sirasgaonkar',
     role: 'Chairperson',
     bio: 'Leads the student branch with a vision for innovation and collaboration. Passionate about empowering students.',
     imageUrl: 'https://picsum.photos/seed/15/400/400',
