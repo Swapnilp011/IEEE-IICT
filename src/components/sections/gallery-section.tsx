@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -74,10 +73,6 @@ export default function GallerySection() {
           <AlbumCard key={album.id} album={album} />
         ))}
       </div>
-
-       <div className="mt-12 text-center">
-         <Button variant="outline" size="lg">Load More</Button>
-       </div>
     </div>
   );
 }
