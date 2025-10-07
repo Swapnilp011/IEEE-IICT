@@ -139,15 +139,6 @@ export const mockTeam: TeamMember[] = [
     linkedin: '#',
     github: '#',
   },
-  {
-    id: '7',
-    name: 'Meera Desai',
-    role: 'Marketing Head',
-    bio: 'Spreads the word about our activities and manages our social media presence.',
-    imageUrl: 'https://picsum.photos/seed/21/400/400',
-    imageHint: 'professional headshot',
-    linkedin: '#',
-  },
 ];
 
 export const mockGallery: GalleryAlbum[] = [
