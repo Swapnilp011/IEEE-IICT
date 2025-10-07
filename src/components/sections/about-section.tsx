@@ -38,7 +38,7 @@ export default function AboutSection() {
         <div className="md:col-span-3">
           <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed text-lg">
-            The IEEE Student Branch at IICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events.
+            Officially inaugurated on July 13, 2023, the IEEE Student Branch at UDICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering. We believe in learning by doing, offering real-world projects and access to a global network of professionals.
