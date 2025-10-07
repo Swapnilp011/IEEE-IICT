@@ -56,6 +56,15 @@ export const mockEvents: Event[] = [
 
 export const mockTeam: TeamMember[] = [
   {
+    id: '9',
+    name: 'Vijaya Ahire',
+    role: 'Faculty Advisor',
+    bio: 'Guides the student branch with her experience and wisdom, ensuring alignment with academic goals.',
+    imageUrl: 'https://picsum.photos/seed/23/400/400',
+    imageHint: 'professional headshot',
+    linkedin: '#',
+  },
+  {
     id: '1',
     name: 'Priya Sharma',
     role: 'Chairperson',

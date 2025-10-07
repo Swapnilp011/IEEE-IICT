@@ -131,6 +131,12 @@
       "description": "Profile photo of team member 8",
       "imageUrl": "https://picsum.photos/seed/22/400/400",
       "imageHint": "professional headshot"
+    },
+    {
+      "id": "team-member-9",
+      "description": "Profile photo of Vijaya Ahire",
+      "imageUrl": "https://picsum.photos/seed/23/400/400",
+      "imageHint": "professional headshot"
     }
   ]
 }
