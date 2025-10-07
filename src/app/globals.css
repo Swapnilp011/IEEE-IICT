@@ -62,9 +62,3 @@
     @apply font-headline;
   }
 }
-
-@layer components {
-  .glass-card {
-    @apply bg-secondary/40 backdrop-blur-sm border border-secondary/60 rounded-xl shadow-lg;
-  }
-}
