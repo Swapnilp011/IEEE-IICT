@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 const EventCard = ({ event }: { event: Event }) => (
   <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-auto shadow-md">
@@ -62,9 +63,9 @@ export default function EventsSection() {
       </p>
 
       <Tabs defaultValue="upcoming" className="mt-12">
-        <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto">
-          <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
-          <TabsTrigger value="past">Past Events</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto bg-primary/90 text-primary-foreground">
+          <TabsTrigger value="upcoming" className={cn('data-[state=active]:bg-background data-[state=active]:text-primary-foreground data-[state=active]:shadow-inner')}>Upcoming Events</TabsTrigger>
+          <TabsTrigger value="past" className={cn('data-[state=active]:bg-background data-[state=active]:text-primary-foreground data-[state=active]:shadow-inner')}>Past Events</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming" className="mt-8">
           <div className="flex flex-wrap justify-center gap-8">
