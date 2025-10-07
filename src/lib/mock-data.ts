@@ -11,7 +11,7 @@ export const mockEvents: Event[] = [
     imageUrl: 'https://picsum.photos/seed/25/400/250',
     imageHint: 'UI UX competition',
     status: 'upcoming',
-    registrationLink: 'https://forms.gle/6UFqbdLw1uaoiYnv5',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfk6ZvV5KSmKO0tjC0oJChfHfsNkN-lg9J-ojfehm6sb-RlMw/viewform?usp=header',
   },
   {
     id: '7',
