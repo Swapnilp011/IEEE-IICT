@@ -16,8 +16,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { LogOut, User, UserPlus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
-export default function UserProfileButton() {
+export default function UserProfileButton({ className }: { className?: string }) {
   const { user, loading } = useAuth();
   const router = useRouter();
 
@@ -29,7 +30,7 @@ export default function UserProfileButton() {
 
   if (loading) {
     return (
-      <Button variant="ghost" size="icon" disabled>
+      <Button variant="ghost" size="icon" disabled className={cn(className)}>
         <User className="h-5 w-5 animate-pulse" />
       </Button>
     );
@@ -37,7 +38,7 @@ export default function UserProfileButton() {
 
   if (!user) {
     return (
-      <Button asChild variant="ghost" size="icon">
+      <Button asChild variant="ghost" size="icon" className={cn("hover:bg-slate-100 hover:text-primary", className)}>
         <Link href="/login">
           <User className="h-5 w-5" />
           <span className="sr-only">Log in</span>

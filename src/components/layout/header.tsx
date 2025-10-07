@@ -93,15 +93,15 @@ export default function Header() {
        // On non-home pages, or before mount, don't highlight any link based on scroll
         const baseHref = href.split('#')[0];
         if (baseHref === '/') { // Special case for home link
-            return pathname === '/' ? 'text-primary' : 'text-muted-foreground';
+            return pathname === '/' ? 'text-primary' : 'text-slate-600';
         }
-        return pathname.startsWith(baseHref) ? 'text-primary' : 'text-muted-foreground';
+        return pathname.startsWith(baseHref) ? 'text-primary' : 'text-slate-600';
      }
-     return activeLink === href ? 'text-primary font-semibold' : 'text-muted-foreground';
+     return activeLink === href ? 'text-primary font-semibold' : 'text-slate-600';
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-secondary/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
@@ -125,16 +125,16 @@ export default function Header() {
 
             <div className="flex items-center gap-4">
 
-            <UserProfileButton />
+            <UserProfileButton className="text-slate-800" />
 
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-slate-800 hover:bg-slate-100 hover:text-primary">
                     <Menu className="h-6 w-6" />
                     <span className="sr-only">Open menu</span>
                 </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="pr-0 bg-background/95">
+                <SheetContent side="left" className="pr-0 bg-white/95">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                         <Logo />
