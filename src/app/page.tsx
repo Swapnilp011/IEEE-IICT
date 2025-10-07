@@ -1,3 +1,11 @@
+import AboutPage from './about/page';
+import EventsPage from './events/page';
+import GalleryPage from './gallery/page';
+import TeamPage from './team/page';
+import ProjectsPage from './projects/page';
+import ContactPage from './contact/page';
+import AdminPage from './admin/page';
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,7 +15,7 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
   return (
     <>
-      <section className="relative flex h-[calc(100vh-4rem)] min-h-[500px] w-full flex-col items-center justify-center bg-primary/5 text-center">
+      <section id="home" className="relative flex h-[calc(100vh-4rem)] min-h-[500px] w-full flex-col items-center justify-center bg-primary/5 text-center">
         {heroImage && (
              <Image
                 src={heroImage.imageUrl}
@@ -27,14 +35,36 @@ export default function Home() {
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg">
-              <Link href="/about">Learn More</Link>
+              <Link href="/#about">Learn More</Link>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <Link href="/events">Our Events</Link>
+              <Link href="/#events">Our Events</Link>
             </Button>
           </div>
         </div>
         <div className="absolute inset-0 bg-black/50" />
+      </section>
+
+      <section id="about" className="py-16 md:py-24">
+        <AboutPage />
+      </section>
+      <section id="events" className="py-16 md:py-24 bg-muted/30">
+        <EventsPage />
+      </section>
+      <section id="gallery" className="py-16 md:py-24">
+        <GalleryPage />
+      </section>
+      <section id="team" className="py-16 md:py-24 bg-muted/30">
+        <TeamPage />
+      </section>
+      <section id="projects" className="py-16 md:py-24">
+        <ProjectsPage />
+      </section>
+      <section id="contact" className="py-16 md:py-24 bg-muted/30">
+        <ContactPage />
+      </section>
+      <section id="admin" className="py-16 md:py-24">
+        <AdminPage />
       </section>
     </>
   );
