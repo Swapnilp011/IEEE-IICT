@@ -1,0 +1,121 @@
+/**
+ * @fileoverview Firestore Security Rules for the IEEE Student Branch application.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a hybrid security model:
+ * - Public read access for Events, Gallery Albums, and Team Members.
+ * - Owner-only access for User Profiles.
+ * - Admin-only access for Contact Messages.
+ *
+ * Data Structure:
+ * - /events/{eventId}: Publicly readable event data.
+ * - /gallery_albums/{albumId}: Publicly readable gallery album data.
+ * - /team_members/{memberId}: Publicly readable team member data.
+ * - /contact_messages/{messageId}: Contact messages, only accessible to admins.
+ * - /users/{userId}: User profile data, accessible only to the user themselves.
+ *
+ * Key Security Decisions:
+ * - Events, Gallery Albums, and Team Members are publicly readable to allow easy access to information.
+ * - Contact Messages are strictly limited to admin access to protect user privacy and prevent spam.
+ * - User Profiles are only accessible to the user to protect personal information.
+ * - There is no user listing allowed.
+ *
+ * Denormalization for Authorization:
+ * - The `UserProfile` includes an `isIeeeMember` field. This avoids any `get()` calls in the security rules.
+ *
+ * Structural Segregation:
+ * - Public data (Events, Gallery Albums, Team Members) and private data (Contact Messages, User Profiles) are stored in separate top-level collections.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Allows anyone to read events, but restricts creation, updating, and deletion to authorized admins.
+     * @path /events/{eventId}
+     * @allow (get, list): Anyone can read event data.
+     * @deny (create, update, delete): Only authorized admins can modify event data.
+     * @principle Allows public read access while restricting write access to admins.
+     */
+    match /events/{eventId} {
+      allow get, list: if true;
+      allow create, update, delete: if false; // TODO: Add admin validation.
+    }
+
+    /**
+     * @description Allows anyone to read gallery albums, but restricts creation, updating, and deletion to authorized admins.
+     * @path /gallery_albums/{albumId}
+     * @allow (get, list): Anyone can read gallery album data.
+     * @deny (create, update, delete): Only authorized admins can modify gallery album data.
+     * @principle Allows public read access while restricting write access to admins.
+     */
+    match /gallery_albums/{albumId} {
+      allow get, list: if true;
+      allow create, update, delete: if false; // TODO: Add admin validation.
+    }
+
+    /**
+     * @description Allows anyone to read team member information, but restricts creation, updating, and deletion to authorized admins.
+     * @path /team_members/{memberId}
+     * @allow (get, list): Anyone can read team member data.
+     * @deny (create, update, delete): Only authorized admins can modify team member data.
+     * @principle Allows public read access while restricting write access to admins.
+     */
+    match /team_members/{memberId} {
+      allow get, list: if true;
+      allow create, update, delete: if false; // TODO: Add admin validation.
+    }
+
+    /**
+     * @description Restricts read and write access to contact messages to authorized admins only.
+     * @path /contact_messages/{messageId}
+     * @allow (get, list, create, update, delete): Only authorized admins can access contact messages.
+     * @deny: Non-admins cannot read or write contact messages.
+     * @principle Protects user privacy and prevents unauthorized access to contact messages.
+     */
+    match /contact_messages/{messageId} {
+      allow get, list, create, update, delete: if false; // TODO: Add admin validation.
+    }
+
+    /**
+     * @description Allows each user to read and write their own profile data.
+     * @path /users/{userId}
+     * @allow (get, create, update, delete): The user with the matching UID can read, create, update, and delete their profile.
+     * @deny: Users cannot access other user's profiles.
+     * @principle Enforces document ownership for user profiles.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Checks if the request is made by the owner of the document.
+     * @param {string} userId The user ID to check against.
+     * @return {boolean} True if the request is made by the owner, false otherwise.
+     */
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    /**
+     * @description Combines ownership check with existence check for update and delete operations.
+     * @param {string} userId The user ID to check against.
+     * @return {boolean} True if the request is made by the existing owner, false otherwise.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    /**
+     * @description Checks if the user is signed in.
+     * @return {boolean} True if the user is signed in, false otherwise.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+  }
+}

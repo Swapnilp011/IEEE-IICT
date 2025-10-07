@@ -1,0 +1,294 @@
+{
+  "entities": {
+    "Event": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Event",
+      "type": "object",
+      "description": "Represents an event organized by the IEEE Student Branch.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the event."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the event."
+        },
+        "date": {
+          "type": "string",
+          "description": "Date and time of the event.",
+          "format": "date-time"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the event (e.g., workshop, seminar)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the event."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the image associated with the event.",
+          "format": "uri"
+        },
+        "registrationLink": {
+          "type": "string",
+          "description": "URL for event registration.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "date",
+        "category",
+        "description",
+        "imageUrl",
+        "registrationLink"
+      ]
+    },
+    "GalleryAlbum": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GalleryAlbum",
+      "type": "object",
+      "description": "Represents an album in the gallery.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the gallery album."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the gallery album."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the gallery album."
+        },
+        "imageUrls": {
+          "type": "array",
+          "description": "URLs of images within the gallery album.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "imageUrls"
+      ]
+    },
+    "TeamMember": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TeamMember",
+      "type": "object",
+      "description": "Represents a member of the IEEE Student Branch team.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the team member."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the team member."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the team member (e.g., President, Vice President)."
+        },
+        "bio": {
+          "type": "string",
+          "description": "Biography of the team member."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "URL of the team member's photo.",
+          "format": "uri"
+        },
+        "linkedinUrl": {
+          "type": "string",
+          "description": "URL of the team member's LinkedIn profile.",
+          "format": "uri"
+        },
+        "githubUrl": {
+          "type": "string",
+          "description": "URL of the team member's GitHub profile.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "role",
+        "bio",
+        "photoUrl"
+      ]
+    },
+    "ContactMessage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactMessage",
+      "type": "object",
+      "description": "Represents a contact message received through the contact form.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact message."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the person sending the message."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the person sending the message.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "Content of the contact message."
+        },
+        "sentAt": {
+          "type": "string",
+          "description": "The timestamp when the message was sent",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "message",
+        "sentAt"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents the profile information of a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user profile (typically the Firebase Auth UID)."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user."
+        },
+        "isIeeeMember": {
+          "type": "boolean",
+          "description": "Indicates if the user is a member of IEEE."
+        },
+        "joinDate": {
+          "type": "string",
+          "description": "The date when the user joined the IEEE Student Branch",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "displayName"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/events/{eventId}",
+        "definition": {
+          "entityName": "Event",
+          "schema": {
+            "$ref": "#/backend/entities/Event"
+          },
+          "description": "Stores event information.  Accessible to all users for reading. Write access restricted to authorized admins.",
+          "params": [
+            {
+              "name": "eventId",
+              "description": "Unique identifier for the event."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/gallery_albums/{albumId}",
+        "definition": {
+          "entityName": "GalleryAlbum",
+          "schema": {
+            "$ref": "#/backend/entities/GalleryAlbum"
+          },
+          "description": "Stores gallery album information. Accessible to all users for reading. Write access restricted to authorized admins.",
+          "params": [
+            {
+              "name": "albumId",
+              "description": "Unique identifier for the gallery album."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/team_members/{memberId}",
+        "definition": {
+          "entityName": "TeamMember",
+          "schema": {
+            "$ref": "#/backend/entities/TeamMember"
+          },
+          "description": "Stores team member information. Accessible to all users for reading. Write access restricted to authorized admins.",
+          "params": [
+            {
+              "name": "memberId",
+              "description": "Unique identifier for the team member."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/contact_messages/{messageId}",
+        "definition": {
+          "entityName": "ContactMessage",
+          "schema": {
+            "$ref": "#/backend/entities/ContactMessage"
+          },
+          "description": "Stores contact messages submitted through the contact form.  Read and write access restricted to authorized admins.",
+          "params": [
+            {
+              "name": "messageId",
+              "description": "Unique identifier for the contact message."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile information, including whether the user is an IEEE member (isIeeeMember).",
+          "params": [
+            {
+              "name": "userId",
+              "description": "Unique identifier for the user (Firebase Auth UID)."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to store data for an IEEE Student Branch website, including events, gallery albums, team members, contact messages, and user profiles. The structure prioritizes Authorization Independence by avoiding hierarchical dependencies, ensures clarity of intent, and is designed for debuggability. It uses path-based ownership and membership maps where appropriate, and denormalizes data to eliminate `get()` calls in security rules.\n\nSpecifically, UserProfiles include an `isIeeeMember` field.  When a user signs up or logs in and chooses to join the IEEE student branch, this boolean is set to true. This avoids any `get()` calls in the security rules. The `isIeeeMember` field supports QAPs by allowing secure filtering based on membership status.\n\nContact Messages are stored in their own collection, accessible only to admins. Events, Gallery Albums, and Team Members have their own top-level collections with no subcollections to keep the security simple and robust."
+  }
+}
