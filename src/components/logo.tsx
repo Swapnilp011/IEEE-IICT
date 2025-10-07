@@ -9,7 +9,6 @@ const Logo = ({ className }: { className?: string }) => {
         alt="IEEE IICT Student Branch Logo"
         width={160}
         height={40}
-        priority
         className="h-10 w-auto"
       />
     </div>
