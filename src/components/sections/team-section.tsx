@@ -5,6 +5,14 @@ import { mockTeam } from '@/lib/mock-data';
 import type { TeamMember } from '@/lib/types';
 import { Card } from '@/components/ui/card';
 import { Linkedin, Github } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
   <Card className="group relative overflow-hidden rounded-lg">
@@ -54,10 +62,26 @@ export default function TeamSection() {
         The driving force behind our success. A group of passionate and dedicated individuals.
       </p>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {mockTeam.map((member) => (
-          <TeamMemberCard key={member.id} member={member} />
-        ))}
+      <div className="mt-12">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {mockTeam.map((member) => (
+              <CarouselItem key={member.id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <div className="p-1">
+                  <TeamMemberCard member={member} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-0 -translate-x-1/2" />
+          <CarouselNext className="absolute right-0 translate-x-1/2" />
+        </Carousel>
       </div>
     </div>
   );
