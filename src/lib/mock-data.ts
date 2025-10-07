@@ -129,16 +129,6 @@ export const mockTeam: TeamMember[] = [
     imageHint: 'professional headshot',
     linkedin: '#',
   },
-  {
-    id: '5',
-    name: 'Neha Gupta',
-    role: 'Events Head',
-    bio: 'The creative mind behind all our engaging workshops, seminars, and competitions.',
-    imageUrl: 'https://picsum.photos/seed/19/400/400',
-    imageHint: 'professional headshot',
-    linkedin: '#',
-    github: '#',
-  },
 ];
 
 export const mockGallery: GalleryAlbum[] = [
