@@ -7,7 +7,6 @@ import EventsSection from '@/components/sections/events-section';
 import GallerySection from '@/components/sections/gallery-section';
 import TeamSection from '@/components/sections/team-section';
 import ContactSection from '@/components/sections/contact-section';
-import AdminSection from '@/components/sections/admin-section';
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -56,23 +55,20 @@ export default function Home() {
 
       {isMounted && (
         <>
-          <section id="about" className="py-12 md:py-20">
+          <section id="about" className="py-12 md:py-16">
             <AboutSection />
           </section>
-          <section id="events" className="py-12 md:py-20 bg-muted/30">
+          <section id="events" className="py-12 md:py-16 bg-muted/30">
             <EventsSection />
           </section>
-          <section id="gallery" className="py-12 md:py-20">
+          <section id="gallery" className="py-12 md:py-16">
             <GallerySection />
           </section>
-          <section id="team" className="py-12 md:py-20 bg-muted/30">
+          <section id="team" className="py-12 md:py-16 bg-muted/30">
             <TeamSection />
           </section>
-          <section id="contact" className="py-12 md:py-20 bg-muted/30">
+          <section id="contact" className="py-12 md:py-16 bg-muted/30">
             <ContactSection />
-          </section>
-          <section id="admin" className="py-12 md:py-20">
-            <AdminSection />
           </section>
         </>
       )}
