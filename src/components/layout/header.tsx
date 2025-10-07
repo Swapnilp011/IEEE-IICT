@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, User, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
+import UserProfileButton from '@/components/user-profile-button';
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -123,10 +124,7 @@ export default function Header() {
 
             <div className="flex items-center gap-4">
 
-            <Button variant="ghost" size="icon" className="hidden md:inline-flex">
-                <User className="h-5 w-5" />
-                <span className="sr-only">Profile</span>
-            </Button>
+            <UserProfileButton />
 
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild className="md:hidden">
