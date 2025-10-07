@@ -1,11 +1,7 @@
-import AdminContentForm from './admin-content-form';
 
-export const metadata = {
-  title: 'Admin | IEEE Connect',
-  description: 'Admin tools for managing content on the IEEE Connect website.',
-};
+import AdminContentForm from '@/app/admin/admin-content-form';
 
-export default function AdminPage() {
+export default function AdminSection() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="max-w-3xl mx-auto">

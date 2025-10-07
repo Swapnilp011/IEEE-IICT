@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -9,7 +10,7 @@ import { Download, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
-export default function GalleryPage() {
+export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
   const categories = ['All', ...Array.from(new Set(mockGallery.map(a => a.category)))];
 

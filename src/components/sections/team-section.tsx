@@ -1,14 +1,10 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { mockTeam } from '@/lib/mock-data';
 import type { TeamMember } from '@/lib/types';
 import { Card } from '@/components/ui/card';
 import { Linkedin, Github } from 'lucide-react';
-
-export const metadata = {
-  title: 'Our Team | IEEE Connect',
-  description: 'Meet the dedicated team behind the IEEE Student Branch at IICT, MGM University.',
-};
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
   <Card className="group relative overflow-hidden rounded-lg">
@@ -48,7 +44,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
   </Card>
 );
 
-export default function TeamPage() {
+export default function TeamSection() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">

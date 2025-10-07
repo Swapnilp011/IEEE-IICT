@@ -1,10 +1,6 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
-import ContactForm from './contact-form';
 
-export const metadata = {
-  title: 'Contact Us | IEEE Connect',
-  description: 'Get in touch with the IEEE Student Branch at IICT, MGM University.',
-};
+import { Mail, Phone, MapPin } from 'lucide-react';
+import ContactForm from '@/app/contact/contact-form';
 
 const contactInfo = [
   {
@@ -26,7 +22,7 @@ const contactInfo = [
   },
 ];
 
-export default function ContactPage() {
+export default function ContactSection() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">

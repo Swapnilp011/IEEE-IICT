@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,12 +22,7 @@ const stats = [
   },
 ];
 
-export const metadata = {
-  title: 'About Us | IEEE Connect',
-  description: 'Learn more about the IEEE Student Branch at IICT, MGM University, our mission, and our achievements.',
-};
-
-export default function AboutPage() {
+export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-graphic');
 
   return (

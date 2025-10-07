@@ -1,3 +1,4 @@
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,11 +8,6 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
-
-export const metadata = {
-  title: 'Events | IEEE Connect',
-  description: 'Explore upcoming and past events hosted by the IEEE Student Branch at IICT, MGM University.',
-};
 
 const EventCard = ({ event }: { event: Event }) => (
   <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
@@ -49,7 +45,7 @@ const EventCard = ({ event }: { event: Event }) => (
   </Card>
 );
 
-export default function EventsPage() {
+export default function EventsSection() {
   const upcomingEvents = mockEvents.filter((e) => e.status === 'upcoming');
   const pastEvents = mockEvents.filter((e) => e.status === 'past');
 

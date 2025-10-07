@@ -1,9 +1,13 @@
-import AboutPage from './about/page';
-import EventsPage from './events/page';
-import GalleryPage from './gallery/page';
-import TeamPage from './team/page';
-import ContactPage from './contact/page';
-import AdminPage from './admin/page';
+
+'use client';
+
+import { useState, useEffect } from 'react';
+import AboutSection from '@/components/sections/about-section';
+import EventsSection from '@/components/sections/events-section';
+import GallerySection from '@/components/sections/gallery-section';
+import TeamSection from '@/components/sections/team-section';
+import ContactSection from '@/components/sections/contact-section';
+import AdminSection from '@/components/sections/admin-section';
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -12,6 +16,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
       <section id="home" className="relative flex h-[calc(100vh-4rem)] min-h-[500px] w-full flex-col items-center justify-center bg-primary/5 text-center">
@@ -44,24 +54,28 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
       </section>
 
-      <section id="about" className="py-16 md:py-24">
-        <AboutPage />
-      </section>
-      <section id="events" className="py-16 md:py-24 bg-muted/30">
-        <EventsPage />
-      </section>
-      <section id="gallery" className="py-16 md:py-24">
-        <GalleryPage />
-      </section>
-      <section id="team" className="py-16 md:py-24 bg-muted/30">
-        <TeamPage />
-      </section>
-      <section id="contact" className="py-16 md:py-24 bg-muted/30">
-        <ContactPage />
-      </section>
-      <section id="admin" className="py-16 md:py-24">
-        <AdminPage />
-      </section>
+      {isMounted && (
+        <>
+          <section id="about" className="py-16 md:py-24">
+            <AboutSection />
+          </section>
+          <section id="events" className="py-16 md:py-24 bg-muted/30">
+            <EventsSection />
+          </section>
+          <section id="gallery" className="py-16 md:py-24">
+            <GallerySection />
+          </section>
+          <section id="team" className="py-16 md:py-24 bg-muted/30">
+            <TeamSection />
+          </section>
+          <section id="contact" className="py-16 md:py-24 bg-muted/30">
+            <ContactSection />
+          </section>
+          <section id="admin" className="py-16 md:py-24">
+            <AdminSection />
+          </section>
+        </>
+      )}
     </>
   );
 }
