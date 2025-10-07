@@ -11,10 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 export default function GallerySection() {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', ...Array.from(new Set(mockGallery.map(a => a.category)))];
-
-  const filteredAlbums = activeCategory === 'All' ? mockGallery : mockGallery.filter(a => a.category === activeCategory);
 
   const AlbumCard = ({ album }: { album: GalleryAlbum }) => (
     <Dialog>
@@ -73,20 +69,8 @@ export default function GallerySection() {
         A glimpse into our events, workshops, and celebrations.
       </p>
       
-      <div className="mt-8 flex justify-center flex-wrap gap-2">
-        {categories.map(category => (
-          <Button
-            key={category}
-            variant={activeCategory === category ? 'default' : 'outline'}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
-      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-8">
-        {filteredAlbums.map((album) => (
+        {mockGallery.map((album) => (
           <AlbumCard key={album.id} album={album} />
         ))}
       </div>
