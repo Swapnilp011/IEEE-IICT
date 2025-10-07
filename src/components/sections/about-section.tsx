@@ -63,7 +63,7 @@ export default function AboutSection() {
         <h2 className="font-headline text-2xl font-semibold text-center text-primary">Our Journey in Numbers</h2>
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((stat) => (
-            <Card key={stat.label} className="text-center transition-transform hover:scale-105 hover:shadow-lg">
+            <Card key={stat.label} className="text-center transition-transform hover:scale-105 hover:shadow-lg lg:last:col-start-2">
               <CardHeader>
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                   {stat.icon}
