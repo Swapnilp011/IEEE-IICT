@@ -1,7 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useFormStatus } from 'react-dom';
+import { useEffect, useState, useActionState } from 'react';
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -29,7 +29,7 @@ function SubmitButton() {
 }
 
 export default function AdminContentForm() {
-  const [state, formAction] = useFormState(generateContentAction, initialState);
+  const [state, formAction] = useActionState(generateContentAction, initialState);
   const [generatedTitle, setGeneratedTitle] = useState('');
   const [generatedDescription, setGeneratedDescription] = useState('');
 
