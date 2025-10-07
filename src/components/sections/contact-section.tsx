@@ -1,5 +1,5 @@
 
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
 import ContactForm from '@/app/contact/contact-form';
 
 const contactInfo = [
@@ -19,6 +19,18 @@ const contactInfo = [
     title: 'Email',
     value: 'info@ieee-mgm.com',
     href: 'mailto:info@ieee-mgm.com',
+  },
+  {
+    icon: <Linkedin className="h-6 w-6 text-primary" />,
+    title: 'LinkedIn',
+    value: 'IEEE IICT Student Branch',
+    href: '#',
+  },
+  {
+    icon: <Instagram className="h-6 w-6 text-primary" />,
+    title: 'Instagram',
+    value: '@ieee.udict.mgmu',
+    href: 'https://www.instagram.com/ieee.udict.mgmu',
   },
 ];
 
@@ -48,7 +60,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-lg font-semibold">{item.title}</h3>
                   {item.href ? (
-                    <a href={item.href} className="text-muted-foreground hover:text-primary">
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                       {item.value}
                     </a>
                   ) : (
