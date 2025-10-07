@@ -64,9 +64,9 @@ export default function AboutSection() {
 
       <div className="mt-16">
         <h2 className="font-headline text-2xl font-semibold text-center text-primary">Our Journey in Numbers</h2>
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 flex flex-wrap justify-center gap-8">
           {stats.map((stat) => (
-            <Card key={stat.label} className="text-center transition-transform hover:scale-105 hover:shadow-lg lg:last:col-start-2">
+            <Card key={stat.label} className="text-center transition-transform hover:scale-105 hover:shadow-lg w-full sm:w-64">
               <CardHeader>
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                   {stat.icon}
