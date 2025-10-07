@@ -2,7 +2,10 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Calendar, Award } from 'lucide-react';
+import { Users, Calendar, Award, GraduationCap, Briefcase } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { mockTeam } from '@/lib/mock-data';
+
 
 const stats = [
   {
@@ -21,6 +24,21 @@ const stats = [
     label: 'Years of Excellence',
   },
 ];
+
+const faculty = [
+    {
+        name: 'Prof. Dr Sharvari Tamane',
+        role: 'Professor and Head, UDICT, MGM University',
+        imageUrl: 'https://i.pravatar.cc/150?u=drsharvaritamane',
+        imageHint: 'professional headshot'
+    },
+    {
+        name: 'Ms. Vijaya Ahire',
+        role: 'Student Branch Counsellor',
+        imageUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+        imageHint: 'professional headshot'
+    }
+]
 
 export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about');
@@ -43,6 +61,19 @@ export default function AboutSection() {
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering. We believe in learning by doing, offering real-world projects and access to a global network of professionals.
           </p>
+           <div className="mt-8">
+            <h3 className="font-headline text-2xl font-semibold text-primary/90">Our Objectives</h3>
+             <ul className="mt-4 space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                    <GraduationCap className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
+                    <span>To provide a platform for students to interact with peers and professionals globally.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                    <Briefcase className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
+                    <span>To conduct activities that foster core knowledge and nurture leadership and managerial skills.</span>
+                </li>
+            </ul>
+          </div>
         </div>
 
         <div className="md:col-span-2">
@@ -59,6 +90,28 @@ export default function AboutSection() {
           )}
         </div>
       </div>
+      
+      <div className="mt-24">
+        <h2 className="font-headline text-3xl font-semibold text-center text-primary">Faculty Guidance</h2>
+        <p className="mt-2 max-w-2xl mx-auto text-center text-muted-foreground">
+          Our student branch is fortunate to be guided by experienced faculty members.
+        </p>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {faculty.map((person) => (
+            <div key={person.name} className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 transition-transform hover:-translate-y-2 p-6 rounded-xl border bg-card text-card-foreground shadow-sm">
+                <Avatar className="h-24 w-24 border-4 border-primary/20">
+                    <AvatarImage src={person.imageUrl} alt={person.name} data-ai-hint={person.imageHint} />
+                    <AvatarFallback>{person.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div>
+                    <h3 className="font-headline text-xl font-bold">{person.name}</h3>
+                    <p className="text-primary font-semibold">{person.role}</p>
+                </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
 
       <div className="mt-24">
         <h2 className="font-headline text-3xl font-semibold text-center text-primary">Our Journey in Numbers</h2>

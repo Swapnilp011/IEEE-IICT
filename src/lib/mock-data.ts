@@ -59,7 +59,7 @@ export const mockTeam: TeamMember[] = [
   {
     id: '9',
     name: 'Vijaya Ahire',
-    role: 'Faculty Advisor',
+    role: 'Student Branch Counsellor',
     bio: 'Guides the student branch with her experience and wisdom, ensuring alignment with academic goals.',
     imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704d',
     imageHint: 'professional headshot',
