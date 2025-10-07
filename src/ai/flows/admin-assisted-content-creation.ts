@@ -46,8 +46,7 @@ You will generate a title and a description for the content based on the content
 Content Type: {{{contentType}}}
 Details: {{{details}}}
 
-Title: 
-Description: `,
+Generate a title and a description based on the provided details.`,
 });
 
 const generateContentSuggestionFlow = ai.defineFlow(
