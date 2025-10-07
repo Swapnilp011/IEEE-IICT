@@ -26,7 +26,7 @@ export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-graphic');
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-8 md:py-10">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
         About IEEE Student Branch
       </h1>
@@ -39,6 +39,9 @@ export default function AboutSection() {
           <h2 className="font-headline text-2xl font-semibold text-primary">Our Mission</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             The IEEE Student Branch at IICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events. Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Our branch was officially inaugurated on July 13, 2023, in a ceremony graced by Chief Guest Prof. Dattatray S. Sawant (IEEE Bombay Section Student Activities Chair) and Guest of Honour Mr. Gaurav Somwanshi (CEO & Co-Founder, EmerTech Innovations). The event was presided over by Hon. Shri. Ankushrao Kadam, Chancellor of MGM University.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             We believe in learning by doing. Our members get opportunities to work on real-world projects, participate in global competitions, and connect with a vast network of professionals through IEEE's global community. Join us to be a part of this exciting journey of learning and growth.
