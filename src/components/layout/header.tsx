@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Search, User, X } from 'lucide-react';
+import { Menu, User, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -122,10 +122,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:inline-flex">
-                <Search className="h-5 w-5" />
-                <span className="sr-only">Search</span>
-            </Button>
+
             <Button variant="ghost" size="icon" className="hidden md:inline-flex">
                 <User className="h-5 w-5" />
                 <span className="sr-only">Profile</span>
