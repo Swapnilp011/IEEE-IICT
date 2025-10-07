@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import Logo from '@/components/logo';
@@ -6,13 +7,13 @@ const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
   { icon: Twitter, href: '#', label: 'Twitter' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/ieee.udict.mgmu', label: 'Instagram' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-muted text-muted-foreground">
-      <div className="container mx-auto max-w-screen-2xl px-4 py-12">
+      <div className="container mx-auto max-w-screen-2xl px-4 py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Logo />
@@ -36,7 +37,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>IICT, MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
+                <span>IICT MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0" />
@@ -53,7 +54,7 @@ export default function Footer() {
             <h3 className="font-headline text-lg font-semibold text-foreground">Follow Us</h3>
             <div className="mt-4 flex space-x-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
-                <Link key={label} href={href} aria-label={label} className="hover:text-primary">
+                <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="hover:text-primary">
                   <Icon className="h-6 w-6" />
                 </Link>
               ))}
