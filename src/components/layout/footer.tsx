@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-muted text-muted-foreground">
       <div className="container mx-auto max-w-screen-2xl px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
             <Logo />
             <p className="text-sm">
@@ -47,20 +47,16 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
 
-          <div>
-            <h3 className="font-headline text-lg font-semibold text-foreground">Follow Us</h3>
-            <div className="mt-4 flex space-x-4">
+        <div className="mt-8 border-t pt-8 text-center text-sm">
+            <div className="flex justify-center space-x-6 mb-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
-                <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="hover:text-primary">
+                <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-muted-foreground hover:text-primary">
                   <Icon className="h-6 w-6" />
                 </Link>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} IEEE Student Branch, IICT MGMU. All Rights Reserved.</p>
         </div>
       </div>
