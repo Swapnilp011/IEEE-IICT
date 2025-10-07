@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
+                <span>IICT, MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0" />

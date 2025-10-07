@@ -6,7 +6,7 @@ const contactInfo = [
   {
     icon: <MapPin className="h-6 w-6 text-primary" />,
     title: 'Address',
-    value: 'MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',
+    value: 'IICT, MGM University, Chhatrapati Sambhajinagar, Maharashtra 431003',
   },
   {
     icon: <Phone className="h-6 w-6 text-primary" />,
@@ -24,7 +24,7 @@ const contactInfo = [
 
 export default function ContactSection() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-8 md:py-10">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
         Get in Touch
       </h1>
