@@ -10,8 +10,8 @@ import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg w-full sm:w-auto">
-    <div className="relative h-48 w-full">
+  <Card className="glass-card flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-auto">
+    <div className="relative h-52 w-full">
       <Image
         src={event.imageUrl}
         alt={event.title}
@@ -19,21 +19,21 @@ const EventCard = ({ event }: { event: Event }) => (
         className="object-cover"
         data-ai-hint={event.imageHint}
       />
-      <Badge variant="secondary" className="absolute top-2 right-2">{event.category}</Badge>
+      <Badge variant="default" className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm">{event.category}</Badge>
     </div>
     <CardHeader>
-      <CardTitle className="font-headline text-lg">{event.title}</CardTitle>
-    </CardHeader>
-    <CardContent className="flex-grow">
-      <p className="text-sm text-muted-foreground">
+      <CardTitle className="font-headline text-xl">{event.title}</CardTitle>
+      <p className="text-sm text-muted-foreground pt-1">
         {format(new Date(event.date), 'MMMM d, yyyy')}
       </p>
-      <p className="mt-2 text-sm">{event.description}</p>
+    </CardHeader>
+    <CardContent className="flex-grow">
+      <p className="text-sm text-muted-foreground">{event.description}</p>
     </CardContent>
     <CardFooter>
       {event.status === 'upcoming' && (
-        <Button className="w-full">
-          Register Now <ArrowRight className="ml-2 h-4 w-4" />
+        <Button className="w-full group">
+          Register Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
       )}
       {event.status === 'past' && (
@@ -51,14 +51,14 @@ export default function EventsSection() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-10">
-      <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
-        Our Events
+      <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
+        Our <span className="text-primary">Events</span>
       </h1>
       <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground md:text-lg">
         Join our workshops, seminars, and competitions to learn, network, and grow.
       </p>
 
-      <Tabs defaultValue="upcoming" className="mt-8">
+      <Tabs defaultValue="upcoming" className="mt-12">
         <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto">
           <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
           <TabsTrigger value="past">Past Events</TabsTrigger>
@@ -70,7 +70,10 @@ export default function EventsSection() {
             ))}
           </div>
           {upcomingEvents.length === 0 && (
-            <p className="text-center text-muted-foreground py-16">No upcoming events scheduled. Check back soon!</p>
+            <div className="text-center py-16">
+              <p className="text-lg text-muted-foreground">No upcoming events scheduled at the moment.</p>
+              <p className="text-sm text-muted-foreground/70">Check back soon for exciting new workshops and competitions!</p>
+            </div>
           )}
         </TabsContent>
         <TabsContent value="past" className="mt-8">

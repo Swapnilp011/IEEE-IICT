@@ -27,56 +27,50 @@ export default function AboutSection() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-10">
-      <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
-        About IEEE Student Branch
+      <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
+        About <span className="text-primary">IEEE</span> Student Branch
       </h1>
       <p className="mt-4 max-w-3xl mx-auto text-center text-muted-foreground md:text-lg">
         We are a community of innovators, leaders, and thinkers dedicated to advancing technology for humanity.
       </p>
 
-      <div className="mt-12 grid gap-12 md:grid-cols-5 md:gap-16">
+      <div className="mt-16 grid gap-12 md:grid-cols-5 md:gap-16 items-center">
         <div className="md:col-span-3">
-          <h2 className="font-headline text-2xl font-semibold text-primary">Our Mission</h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            The IEEE Student Branch at IICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events. Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering.
+          <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed text-lg">
+            The IEEE Student Branch at IICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our branch was officially inaugurated on July 13, 2023, in a ceremony graced by Chief Guest Prof. Dattatray S. Sawant (IEEE Bombay Section Student Activities Chair) and Guest of Honour Mr. Gaurav Somwanshi (CEO & Co-Founder, EmerTech Innovations). The event was presided over by Hon. Shri. Ankushrao Kadam, Chancellor of MGM University.
-          </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            We believe in learning by doing. Our members get opportunities to work on real-world projects, participate in global competitions, and connect with a vast network of professionals through IEEE's global community. Join us to be a part of this exciting journey of learning and growth.
+            Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering. We believe in learning by doing, offering real-world projects and access to a global network of professionals.
           </p>
         </div>
 
         <div className="md:col-span-2">
           {aboutImage && (
-            <Image
-              src={aboutImage.imageUrl}
-              alt={aboutImage.description}
-              width={600}
-              height={400}
-              className="rounded-lg object-cover shadow-lg"
-              data-ai-hint={aboutImage.imageHint}
-            />
+            <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl shadow-primary/20">
+                <Image
+                src={aboutImage.imageUrl}
+                alt={aboutImage.description}
+                fill
+                className="rounded-lg object-cover scale-110"
+                data-ai-hint={aboutImage.imageHint}
+                />
+            </div>
           )}
         </div>
       </div>
 
-      <div className="mt-16">
-        <h2 className="font-headline text-2xl font-semibold text-center text-primary">Our Journey in Numbers</h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-8">
+      <div className="mt-24">
+        <h2 className="font-headline text-3xl font-semibold text-center text-primary">Our Journey in Numbers</h2>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat) => (
-            <Card key={stat.label} className="text-center transition-transform hover:scale-105 hover:shadow-lg w-full sm:w-64">
-              <CardHeader>
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+            <div key={stat.label} className="glass-card text-center transition-transform hover:-translate-y-2 p-6">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                   {stat.icon}
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-4xl font-bold">{stat.value}</p>
-                <p className="mt-2 text-muted-foreground">{stat.label}</p>
-              </CardContent>
-            </Card>
+                <p className="text-5xl font-bold text-primary">{stat.value}</p>
+                <p className="mt-2 text-muted-foreground text-lg">{stat.label}</p>
+            </div>
           ))}
         </div>
       </div>

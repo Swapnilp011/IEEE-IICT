@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -96,11 +97,11 @@ export default function Header() {
         }
         return pathname.startsWith(baseHref) ? 'text-primary' : 'text-muted-foreground';
      }
-     return activeLink === href ? 'text-primary' : 'text-muted-foreground';
+     return activeLink === href ? 'text-primary font-semibold' : 'text-muted-foreground';
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-secondary/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <Logo />
@@ -133,7 +134,7 @@ export default function Header() {
                     <span className="sr-only">Open menu</span>
                 </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="pr-0">
+                <SheetContent side="left" className="pr-0 bg-background/95">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                         <Logo />
