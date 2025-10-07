@@ -1,44 +1,15 @@
+
 import type { Event, TeamMember, GalleryAlbum } from './types';
 
 export const mockEvents: Event[] = [
   {
     id: '1',
-    title: 'AI & Machine Learning Workshop',
-    date: '2024-08-15',
-    category: 'Workshop',
-    description: 'An intensive workshop covering the fundamentals of AI and Machine Learning with hands-on sessions.',
-    imageUrl: 'https://picsum.photos/seed/3/400/250',
-    imageHint: 'AI workshop',
-    status: 'upcoming',
-  },
-  {
-    id: '2',
-    title: 'Intro to Blockchain Seminar',
-    date: '2024-09-02',
-    category: 'Seminar',
-    description: 'Discover the world of blockchain technology and its applications beyond cryptocurrencies.',
-    imageUrl: 'https://picsum.photos/seed/4/400/250',
-    imageHint: 'blockchain seminar',
-    status: 'upcoming',
-  },
-  {
-    id: '3',
-    title: 'CodeSprint 2024',
-    date: '2024-09-20',
+    title: 'INNOVISTA',
+    date: '2025-10-08',
     category: 'Competition',
-    description: 'Annual flagship coding competition. Compete with the best and win exciting prizes.',
-    imageUrl: 'https://picsum.photos/seed/5/400/250',
-    imageHint: 'coding competition',
-    status: 'upcoming',
-  },
-  {
-    id: '4',
-    title: 'Cybersecurity Essentials Webinar',
-    date: '2024-10-05',
-    category: 'Webinar',
-    description: 'Learn about the essential practices to stay safe in the digital world from industry experts.',
-    imageUrl: 'https://picsum.photos/seed/6/400/250',
-    imageHint: 'cybersecurity webinar',
+    description: 'A UI/UX design competition to challenge your creativity and design skills.',
+    imageUrl: 'https://picsum.photos/seed/25/400/250',
+    imageHint: 'UI UX competition',
     status: 'upcoming',
   },
   {
