@@ -1,4 +1,6 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { mockTeam } from '@/lib/mock-data';
@@ -11,8 +13,11 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import { useState, useEffect, useCallback } from 'react';
+import { cn } from '@/lib/utils';
 
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
@@ -54,8 +59,33 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 );
 
 export default function TeamSection() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  const updateCurrent = useCallback(() => {
+    if (!api) {
+      return
+    }
+    setCurrent(api.selectedScrollSnap())
+  }, [api])
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    updateCurrent()
+    api.on("select", updateCurrent)
+    api.on("reInit", updateCurrent)
+
+    return () => {
+      api.off("select", updateCurrent)
+      api.off("reInit", updateCurrent)
+    }
+  }, [api, updateCurrent])
+
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-8 md:py-10">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
         Meet Our Team
       </h1>
@@ -65,21 +95,28 @@ export default function TeamSection() {
 
       <div className="mt-12">
         <Carousel
+          setApi={setApi}
           plugins={[
             Autoplay({
-              delay: 2000,
+              delay: 4000,
               stopOnInteraction: true,
             }),
           ]}
           opts={{
-            align: "start",
+            align: "center",
             loop: true,
           }}
           className="w-full"
         >
-          <CarouselContent>
-            {mockTeam.map((member) => (
-              <CarouselItem key={member.id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+          <CarouselContent className="-ml-4">
+            {mockTeam.map((member, index) => (
+              <CarouselItem 
+                key={member.id} 
+                className={cn(
+                  "basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4 transition-all duration-300",
+                  index === current ? 'scale-105 opacity-100' : 'scale-90 opacity-50'
+                )}
+              >
                 <div className="p-1">
                   <TeamMemberCard member={member} />
                 </div>
