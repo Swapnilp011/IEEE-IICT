@@ -17,7 +17,7 @@ import {
 
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <Card className="group relative overflow-hidden rounded-lg glass-card">
+  <Card className="group relative overflow-hidden rounded-lg border shadow-sm">
     <div className="aspect-square">
       <Image
         src={member.imageUrl}
@@ -34,12 +34,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
         <p className="text-sm text-primary-foreground/80">{member.role}</p>
       </div>
     </div>
-    <div className="absolute inset-0 flex flex-col justify-end bg-black/90 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+    <div className="absolute inset-0 flex flex-col justify-end bg-white/95 dark:bg-black/90 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
       <h3 className="font-headline text-lg font-bold text-primary">{member.name}</h3>
-      <p className="text-sm text-primary-foreground/80">{member.role}</p>
-      <p className="mt-2 text-sm text-primary-foreground/90 flex-grow">{member.bio}</p>
+      <p className="text-sm text-foreground/80">{member.role}</p>
+      <p className="mt-2 text-sm text-foreground/90 flex-grow">{member.bio}</p>
       <div className="mt-4 flex items-center space-x-4">
-        <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary">
+        <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary">
           <Linkedin className="h-5 w-5" />
           <span className="sr-only">LinkedIn</span>
         </Link>

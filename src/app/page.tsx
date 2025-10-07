@@ -14,7 +14,6 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { toast } from '@/hooks/use-toast';
 
 function AnimatedSection({ id, className, children }: { id: string; className?: string; children: React.ReactNode }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,10 +44,15 @@ function AnimatedSection({ id, className, children }: { id: string; className?: 
   }, [id]);
 
   return (
-    <section id={id} className={cn('py-16 md:py-24 transition-opacity duration-1000 ease-out', className, isVisible ? 'opacity-100' : 'opacity-0')}>
-      <div className={cn('transform transition-transform duration-1000 ease-out', isVisible ? 'translate-y-0' : 'translate-y-8')}>
-        {children}
-      </div>
+    <section 
+      id={id} 
+      className={cn(
+        'py-16 md:py-24 transition-opacity duration-1000 ease-out transform', 
+        className, 
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      )}
+    >
+      {children}
     </section>
   );
 }
@@ -65,20 +69,20 @@ export default function Home() {
   return (
     <>
       <section id="home" className="relative h-[calc(100vh-4rem)] min-h-[600px] w-full overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-background to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background via-white/50 to-transparent z-10" />
         {heroImage && (
              <Image
                 src={heroImage.imageUrl}
                 alt={heroImage.description}
                 fill
-                className="object-cover animate-pan-in"
+                className="object-cover"
                 data-ai-hint={heroImage.imageHint}
                 priority
              />
         )}
         <div className="relative container z-20 mx-auto flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="font-headline text-5xl font-bold tracking-tight text-white drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
-            <span className="bg-gradient-to-r from-primary via-blue-400 to-cyan-400 bg-clip-text text-transparent">IEEE</span> Student Branch
+          <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="bg-gradient-to-r from-primary via-blue-600 to-cyan-500 bg-clip-text text-transparent">IEEE</span> Student Branch
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-foreground/80 drop-shadow-sm md:text-xl">
             IICT, MGM University: Fostering Tomorrow's Tech Leaders.
@@ -101,16 +105,16 @@ export default function Home() {
           <AnimatedSection id="about">
             <AboutSection />
           </AnimatedSection>
-          <AnimatedSection id="events" className="bg-secondary/20">
+          <AnimatedSection id="events" className="bg-secondary/60">
             <EventsSection />
           </AnimatedSection>
           <AnimatedSection id="gallery">
             <GallerySection />
           </AnimatedSection>
-          <AnimatedSection id="team" className="bg-secondary/20">
+          <AnimatedSection id="team" className="bg-secondary/60">
             <TeamSection />
           </AnimatedSection>
-          <AnimatedSection id="contact" className="bg-secondary/20">
+          <AnimatedSection id="contact">
             <ContactSection />
           </AnimatedSection>
         </>

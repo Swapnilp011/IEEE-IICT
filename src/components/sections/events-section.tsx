@@ -11,7 +11,7 @@ import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="glass-card flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-auto">
+  <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-auto shadow-md">
     <div className="relative h-52 w-full">
       <Image
         src={event.imageUrl}
@@ -20,7 +20,7 @@ const EventCard = ({ event }: { event: Event }) => (
         className="object-cover"
         data-ai-hint={event.imageHint}
       />
-      <Badge variant="default" className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm">{event.category}</Badge>
+      <Badge variant="default" className="absolute top-3 right-3">{event.category}</Badge>
     </div>
     <CardHeader>
       <CardTitle className="font-headline text-xl">{event.title}</CardTitle>
