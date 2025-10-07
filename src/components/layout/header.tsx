@@ -16,7 +16,6 @@ const navLinks = [
   { href: '/#events', label: 'Events' },
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#team', label: 'Team' },
-  { href: '/#projects', label: 'Projects' },
   { href: '/#contact', label: 'Contact' },
   { href: '/#admin', label: 'Admin' },
 ];
@@ -90,7 +89,12 @@ export default function Header() {
 
   const getLinkClassName = (href: string) => {
      if (pathname !== '/' || !isMounted) {
-       return 'text-muted-foreground';
+       // On non-home pages, or before mount, don't highlight any link based on scroll
+        const baseHref = href.split('#')[0];
+        if (baseHref === '/') { // Special case for home link
+            return pathname === '/' ? 'text-primary' : 'text-muted-foreground';
+        }
+        return pathname.startsWith(baseHref) ? 'text-primary' : 'text-muted-foreground';
      }
      return activeLink === href ? 'text-primary' : 'text-muted-foreground';
   }
@@ -103,7 +107,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex md:items-center md:gap-6">
-          {navLinks.map(({ href, label }) => (
+          {isMounted && navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -142,7 +146,7 @@ export default function Header() {
                  </Link>
               </div>
               <div className="mt-8 flex flex-col gap-4">
-                {navLinks.map(({ href, label }) => (
+                {isMounted && navLinks.map(({ href, label }) => (
                   <Link
                     key={href}
                     href={href}

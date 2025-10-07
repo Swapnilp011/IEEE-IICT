@@ -2,7 +2,6 @@ import AboutPage from './about/page';
 import EventsPage from './events/page';
 import GalleryPage from './gallery/page';
 import TeamPage from './team/page';
-import ProjectsPage from './projects/page';
 import ContactPage from './contact/page';
 import AdminPage from './admin/page';
 
@@ -56,9 +55,6 @@ export default function Home() {
       </section>
       <section id="team" className="py-16 md:py-24 bg-muted/30">
         <TeamPage />
-      </section>
-      <section id="projects" className="py-16 md:py-24">
-        <ProjectsPage />
       </section>
       <section id="contact" className="py-16 md:py-24 bg-muted/30">
         <ContactPage />
