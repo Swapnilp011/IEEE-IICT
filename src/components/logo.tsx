@@ -18,7 +18,7 @@ const Logo = ({ className }: { className?: string }) => {
         <path d="M17 4.5L7 9.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
       <span className="font-headline text-xl font-bold text-foreground">
-        IEEE Connect
+        IEEE IICT Student Branch
       </span>
     </div>
   );
