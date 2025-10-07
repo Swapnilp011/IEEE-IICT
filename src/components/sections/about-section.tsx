@@ -28,7 +28,7 @@ export default function AboutSection() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
-        About IEEE Student Branch IICT
+        About IEEE Student Branch
       </h1>
       <p className="mt-4 max-w-3xl mx-auto text-center text-muted-foreground md:text-lg">
         We are a community of innovators, leaders, and thinkers dedicated to advancing technology for humanity.
