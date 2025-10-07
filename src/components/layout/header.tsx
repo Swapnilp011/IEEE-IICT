@@ -23,28 +23,50 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [activeLink, setActiveLink] = useState('/#home');
+  const [activeLink, setActiveLink] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted || pathname !== '/') return;
+
+    setActiveLink('/#home');
+
     const handleScroll = () => {
-      const sections = navLinks.map(link => document.getElementById(link.href.substring(2)));
+      const sections = navLinks
+        .map(link => (link.href.startsWith('/#') ? document.getElementById(link.href.substring(2)) : null))
+        .filter(Boolean);
+
       const scrollPosition = window.scrollY + 100;
 
+      let currentSection = '/#home';
       for (const section of sections) {
         if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-          const newActiveLink = `/${'#'}${section.id}`;
-          if (newActiveLink !== activeLink) {
-            setActiveLink(newActiveLink);
-          }
+          currentSection = `/#${section.id}`;
           break;
         }
       }
+      // If no section is in view (e.g., at the very bottom), the last one should be active
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          const lastLink = navLinks[navLinks.length - 1];
+          if(lastLink.href.startsWith('/#')){
+            currentSection = lastLink.href;
+          }
+      }
+
+
+      setActiveLink(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Set initial active link
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeLink]);
+  }, [isMounted, pathname]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (pathname === '/') {
@@ -60,10 +82,18 @@ export default function Header() {
         setActiveLink(href);
         setIsMobileMenuOpen(false);
     } else {
-        // If on a different page, just navigate
+        // If on a different page, just navigate to home and then scroll
+        window.location.href = href;
         setIsMobileMenuOpen(false);
     }
   };
+
+  const getLinkClassName = (href: string) => {
+     if (pathname !== '/' || !isMounted) {
+       return 'text-muted-foreground';
+     }
+     return activeLink === href ? 'text-primary' : 'text-muted-foreground';
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -80,7 +110,7 @@ export default function Header() {
               onClick={(e) => handleLinkClick(e, href)}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === '/' && activeLink === href ? 'text-primary' : 'text-muted-foreground'
+                getLinkClassName(href)
               )}
             >
               {label}
@@ -119,7 +149,7 @@ export default function Header() {
                     onClick={(e) => handleLinkClick(e, href)}
                     className={cn(
                       'text-lg font-medium transition-colors hover:text-primary',
-                       pathname === '/' && activeLink === href ? 'text-primary' : 'text-muted-foreground'
+                       getLinkClassName(href)
                     )}
                   >
                     {label}
