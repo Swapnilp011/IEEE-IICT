@@ -138,15 +138,11 @@
       "type": "object",
       "description": "Represents a contact message submitted through the contact form.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the contact message."
-        },
-        "fullName": {
+        "name": {
           "type": "string",
           "description": "The full name of the person submitting the message."
         },
-        "emailAddress": {
+        "email": {
           "type": "string",
           "description": "The email address of the person submitting the message.",
           "format": "email"
@@ -159,19 +155,18 @@
           "type": "string",
           "description": "The content of the message."
         },
-        "sentAt": {
+        "createdAt": {
           "type": "string",
           "description": "Timestamp indicating when the message was sent.",
           "format": "date-time"
         }
       },
       "required": [
-        "id",
-        "fullName",
-        "emailAddress",
+        "name",
+        "email",
         "subject",
         "message",
-        "sentAt"
+        "createdAt"
       ]
     }
   },

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useAuth } from '@/firebase';
+import { useUser } from '@/firebase';
 import { getAuth, signOut } from 'firebase/auth';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -19,7 +19,7 @@ import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 export default function UserProfileButton({ className }: { className?: string }) {
-  const { user, loading } = useAuth();
+  const { user, loading } = useUser();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -38,7 +38,7 @@ export default function UserProfileButton({ className }: { className?: string })
 
   if (!user) {
     return (
-      <Button asChild variant="ghost" size="icon" className={cn("hover:bg-slate-100 hover:text-primary", className)}>
+      <Button asChild variant="ghost" size="icon" className={cn("hover:bg-accent hover:text-accent-foreground", className)}>
         <Link href="/login">
           <User className="h-5 w-5" />
           <span className="sr-only">Log in</span>

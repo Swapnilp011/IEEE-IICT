@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { toast } from '@/hooks/use-toast';
+import { useActionState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,6 +18,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight } from 'lucide-react';
+import { submitContactForm } from './actions';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -25,7 +27,13 @@ const formSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
+const initialState = {
+  message: '',
+  errors: null,
+}
+
 export default function ContactForm() {
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,23 +44,25 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Here you would typically send the form data to a server
-    console.log(values);
-
-    // Simulate an API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We will get back to you shortly.",
-    });
-    form.reset();
-  }
+  useEffect(() => {
+    if (state?.message && !state.errors) {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We will get back to you shortly.",
+      });
+      form.reset();
+    } else if (state?.message && state.errors) {
+       toast({
+        variant: "destructive",
+        title: "Error",
+        description: state.message,
+      });
+    }
+  }, [state, form]);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form action={formAction} className="space-y-4">
         <FormField
           control={form.control}
           name="name"
@@ -105,9 +115,9 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting} className="w-full group">
-          {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
-          {!form.formState.isSubmitting && <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />}
+        <Button type="submit" className="w-full group">
+          Send Message
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
       </form>
     </Form>
