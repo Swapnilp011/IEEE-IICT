@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { toast } from '@/hooks/use-toast';
 
 function AnimatedSection({ id, className, children }: { id: string; className?: string; children: React.ReactNode }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +45,7 @@ function AnimatedSection({ id, className, children }: { id: string; className?: 
   }, [id]);
 
   return (
-    <section id={id} className={cn(className, 'transition-opacity duration-1000 ease-out', isVisible ? 'opacity-100' : 'opacity-0')}>
+    <section id={id} className={cn('py-16 md:py-24 transition-opacity duration-1000 ease-out', className, isVisible ? 'opacity-100' : 'opacity-0')}>
       <div className={cn('transform transition-transform duration-1000 ease-out', isVisible ? 'translate-y-0' : 'translate-y-8')}>
         {children}
       </div>
@@ -84,7 +85,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button asChild size="lg" className="group" >
-              <Link href="/join">
+              <Link href="https://forms.gle/6UFqbdLw1uaoiYnv5" target="_blank" rel="noopener noreferrer">
                 Become a Member <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -97,19 +98,19 @@ export default function Home() {
 
       {isMounted && (
         <>
-          <AnimatedSection id="about" className="py-16 md:py-24">
+          <AnimatedSection id="about">
             <AboutSection />
           </AnimatedSection>
-          <AnimatedSection id="events" className="py-16 md:py-24 bg-secondary/20">
+          <AnimatedSection id="events" className="bg-secondary/20">
             <EventsSection />
           </AnimatedSection>
-          <AnimatedSection id="gallery" className="py-16 md:py-24">
+          <AnimatedSection id="gallery">
             <GallerySection />
           </AnimatedSection>
-          <AnimatedSection id="team" className="py-16 md:py-24 bg-secondary/20">
+          <AnimatedSection id="team" className="bg-secondary/20">
             <TeamSection />
           </AnimatedSection>
-          <AnimatedSection id="contact" className="py-16 md:py-24 bg-secondary/20">
+          <AnimatedSection id="contact" className="bg-secondary/20">
             <ContactSection />
           </AnimatedSection>
         </>

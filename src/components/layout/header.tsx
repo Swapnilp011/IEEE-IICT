@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
-import UserProfileButton from '@/components/user-profile-button';
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -125,7 +124,6 @@ export default function Header() {
 
             <div className="flex items-center gap-4">
 
-            <UserProfileButton />
 
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild className="md:hidden">
