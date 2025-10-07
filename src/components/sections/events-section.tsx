@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { mockEvents } from '@/lib/mock-data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
@@ -31,9 +32,11 @@ const EventCard = ({ event }: { event: Event }) => (
       <p className="text-sm text-muted-foreground">{event.description}</p>
     </CardContent>
     <CardFooter>
-      {event.status === 'upcoming' && (
-        <Button className="w-full group">
-          Register Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+      {event.status === 'upcoming' && event.registrationLink && (
+        <Button asChild className="w-full group">
+          <Link href={event.registrationLink} target="_blank" rel="noopener noreferrer">
+            Register Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </Button>
       )}
       {event.status === 'past' && (

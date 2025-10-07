@@ -1,3 +1,4 @@
+
 export type Event = {
   id: string;
   title: string;
@@ -7,6 +8,7 @@ export type Event = {
   imageUrl: string;
   imageHint: string;
   status: 'upcoming' | 'past';
+  registrationLink?: string;
 };
 
 export type TeamMember = {
