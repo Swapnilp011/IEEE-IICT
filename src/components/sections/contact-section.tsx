@@ -1,5 +1,5 @@
 
-import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Globe } from 'lucide-react';
 import ContactForm from '@/app/contact/contact-form';
 
 const contactInfo = [
@@ -31,6 +31,12 @@ const contactInfo = [
     title: 'Instagram',
     value: '@ieee.udict.mgmu',
     href: 'https://www.instagram.com/ieee.udict.mgmu',
+  },
+  {
+    icon: <Globe className="h-6 w-6 text-primary" />,
+    title: 'University Website',
+    value: 'mgmu.ac.in',
+    href: 'https://mgmu.ac.in/',
   },
 ];
 
