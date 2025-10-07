@@ -13,6 +13,45 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+function AnimatedSection({ id, className, children }: { id: string; className?: string; children: React.ReactNode }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById(id);
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [id]);
+
+  return (
+    <section id={id} className={cn(className, 'transition-opacity duration-1000 ease-out', isVisible ? 'opacity-100' : 'opacity-0')}>
+      <div className={cn('transform transition-transform duration-1000 ease-out', isVisible ? 'translate-y-0' : 'translate-y-8')}>
+        {children}
+      </div>
+    </section>
+  );
+}
+
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
@@ -58,21 +97,21 @@ export default function Home() {
 
       {isMounted && (
         <>
-          <section id="about" className="py-16 md:py-24">
+          <AnimatedSection id="about" className="py-16 md:py-24">
             <AboutSection />
-          </section>
-          <section id="events" className="py-16 md:py-24 bg-secondary/20">
+          </AnimatedSection>
+          <AnimatedSection id="events" className="py-16 md:py-24 bg-secondary/20">
             <EventsSection />
-          </section>
-          <section id="gallery" className="py-16 md:py-24">
+          </AnimatedSection>
+          <AnimatedSection id="gallery" className="py-16 md:py-24">
             <GallerySection />
-          </section>
-          <section id="team" className="py-16 md:py-24 bg-secondary/20">
+          </AnimatedSection>
+          <AnimatedSection id="team" className="py-16 md:py-24 bg-secondary/20">
             <TeamSection />
-          </section>
-          <section id="contact" className="py-16 md:py-24 bg-secondary/20">
+          </AnimatedSection>
+          <AnimatedSection id="contact" className="py-16 md:py-24 bg-secondary/20">
             <ContactSection />
-          </section>
+          </AnimatedSection>
         </>
       )}
     </>
