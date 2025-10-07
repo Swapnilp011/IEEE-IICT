@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { mockTeam } from '@/lib/mock-data';
 import type { TeamMember } from '@/lib/types';
 import { Card } from '@/components/ui/card';
-import { Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github, Annoyed } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
 
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
@@ -63,15 +62,12 @@ export default function TeamSection() {
       <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground md:text-lg">
         The driving force behind our success. A group of passionate and dedicated individuals.
       </p>
+      <p className="mt-4 max-w-2xl mx-auto text-center text-accent-foreground font-semibold md:text-lg">
+        Recruitment for the tenure of 2026 is going to start soon. Stay tuned!
+      </p>
 
       <div className="mt-12">
         <Carousel
-          plugins={[
-            Autoplay({
-              delay: 3000,
-              stopOnInteraction: true,
-            }),
-          ]}
           opts={{
             align: "center",
             loop: true,
