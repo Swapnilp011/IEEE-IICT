@@ -1,0 +1,93 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { mockEvents } from '@/lib/mock-data';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+import type { Event } from '@/lib/types';
+import { format } from 'date-fns';
+
+export const metadata = {
+  title: 'Events | IEEE Connect',
+  description: 'Explore upcoming and past events hosted by the IEEE Student Branch at IICT, MGM University.',
+};
+
+const EventCard = ({ event }: { event: Event }) => (
+  <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
+    <div className="relative h-48 w-full">
+      <Image
+        src={event.imageUrl}
+        alt={event.title}
+        fill
+        className="object-cover"
+        data-ai-hint={event.imageHint}
+      />
+      <Badge variant="secondary" className="absolute top-2 right-2">{event.category}</Badge>
+    </div>
+    <CardHeader>
+      <CardTitle className="font-headline text-lg">{event.title}</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-grow">
+      <p className="text-sm text-muted-foreground">
+        {format(new Date(event.date), 'MMMM d, yyyy')}
+      </p>
+      <p className="mt-2 text-sm">{event.description}</p>
+    </CardContent>
+    <CardFooter>
+      {event.status === 'upcoming' && (
+        <Button className="w-full">
+          Register Now <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      )}
+      {event.status === 'past' && (
+        <Button variant="outline" className="w-full" disabled>
+          Event Concluded
+        </Button>
+      )}
+    </CardFooter>
+  </Card>
+);
+
+export default function EventsPage() {
+  const upcomingEvents = mockEvents.filter((e) => e.status === 'upcoming');
+  const pastEvents = mockEvents.filter((e) => e.status === 'past');
+
+  return (
+    <div className="container mx-auto px-4 py-12 md:py-16">
+      <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
+        Our Events
+      </h1>
+      <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground md:text-lg">
+        Join our workshops, seminars, and competitions to learn, network, and grow.
+      </p>
+
+      <Tabs defaultValue="upcoming" className="mt-8">
+        <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto">
+          <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
+          <TabsTrigger value="past">Past Events</TabsTrigger>
+        </TabsList>
+        <TabsContent value="upcoming" className="mt-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+          {upcomingEvents.length === 0 && (
+            <p className="text-center text-muted-foreground py-16">No upcoming events scheduled. Check back soon!</p>
+          )}
+        </TabsContent>
+        <TabsContent value="past" className="mt-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {pastEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+           {pastEvents.length === 0 && (
+            <p className="text-center text-muted-foreground py-16">No past events to show.</p>
+          )}
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
