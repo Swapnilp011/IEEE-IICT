@@ -10,7 +10,7 @@ import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
+  <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg w-full sm:w-auto">
     <div className="relative h-48 w-full">
       <Image
         src={event.imageUrl}
@@ -50,7 +50,7 @@ export default function EventsSection() {
   const pastEvents = mockEvents.filter((e) => e.status === 'past');
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-8 md:py-10">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
         Our Events
       </h1>
@@ -64,7 +64,7 @@ export default function EventsSection() {
           <TabsTrigger value="past">Past Events</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming" className="mt-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-8">
             {upcomingEvents.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
