@@ -137,6 +137,24 @@
       "description": "Profile photo of Vijaya Ahire",
       "imageUrl": "https://picsum.photos/seed/23/400/400",
       "imageHint": "professional headshot"
+    },
+    {
+      "id": "team-member-10",
+      "description": "Profile photo of Sonia Patel",
+      "imageUrl": "https://picsum.photos/seed/30/400/400",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "team-member-11",
+      "description": "Profile photo of Rohan Joshi",
+      "imageUrl": "https://picsum.photos/seed/31/400/400",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "team-member-12",
+      "description": "Profile photo of Pooja Reddy",
+      "imageUrl": "https://picsum.photos/seed/32/400/400",
+      "imageHint": "professional headshot"
     }
   ]
 }
