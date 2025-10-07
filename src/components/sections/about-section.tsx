@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Calendar, Award, GraduationCap, Briefcase } from 'lucide-react';
+import { Users, Calendar, Award, GraduationCap, Briefcase, Info } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockTeam } from '@/lib/mock-data';
 
@@ -49,28 +49,27 @@ export default function AboutSection() {
         About <span className="text-primary">IEEE</span> Student Branch
       </h1>
       <p className="mt-4 max-w-3xl mx-auto text-center text-muted-foreground md:text-lg">
-        We are a community of innovators, leaders, and thinkers dedicated to advancing technology for humanity.
+       Welcome to the IEEE Student Branch at IICT, MGM University, a dynamic community dedicated to fostering technological innovation and professional growth. Our mission is to provide a platform for students to connect, learn, and lead in the ever-evolving world of technology.
       </p>
 
       <div className="mt-16 grid gap-12 md:grid-cols-5 md:gap-16 items-center">
         <div className="md:col-span-3">
-          <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission</h2>
+          <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission & Vision</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed text-lg">
-            Officially inaugurated on July 13, 2023, the IEEE Student Branch at UDICT, MGM University, is committed to providing a platform for students to develop their technical and professional skills. We aim to foster a spirit of collaboration and innovation by organizing workshops, seminars, competitions, and networking events.
-          </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our goal is to bridge the gap between academia and industry, preparing our members for successful careers in technology and engineering. We believe in learning by doing, offering real-world projects and access to a global network of professionals.
+            Our mission is to foster core knowledge, leadership, and managerial skills among students. We aim to bridge the gap between academia and industry by providing a platform for students to interact with peers and professionals globally, ensuring they are well-prepared for their future careers.
           </p>
            <div className="mt-8">
-            <h3 className="font-headline text-2xl font-semibold text-primary/90">Our Objectives</h3>
+            <h3 className="font-headline text-2xl font-semibold text-primary/90">Our History</h3>
+             <p className="mt-4 text-muted-foreground leading-relaxed">
+                The IEEE Student Branch at UDICT, MGM University was officially established on April 28, 2023. It was formed through the dedicated efforts of key faculty and student members who envisioned a community for tech enthusiasts to thrive.
+             </p>
+          </div>
+          <div className="mt-8">
+            <h3 className="font-headline text-2xl font-semibold text-primary/90">About IEEE</h3>
              <ul className="mt-4 space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
-                    <GraduationCap className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
-                    <span>To provide a platform for students to interact with peers and professionals globally.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                    <Briefcase className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
-                    <span>To conduct activities that foster core knowledge and nurture leadership and managerial skills.</span>
+                    <Info className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
+                    <span>IEEE is the world's largest technical professional organization for the advancement of technology. Student membership offers access to a vast network of professionals, technical resources, and career development opportunities.</span>
                 </li>
             </ul>
           </div>

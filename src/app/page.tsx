@@ -90,10 +90,10 @@ export default function Home() {
         )}
         <div className="relative container z-20 mx-auto flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
-            <span className="text-primary">IEEE</span> Student Branch
+            Fostering Innovation, Connecting Minds.
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg font-semibold text-foreground drop-shadow-md md:text-xl">
-            IICT, MGM University: Fostering Tomorrow's Tech Leaders.
+            Welcome to the IEEE Student Branch at IICT, MGM University.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button asChild size="lg" className="group" >
