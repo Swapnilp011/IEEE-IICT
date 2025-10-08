@@ -147,6 +147,15 @@ export const mockTeam: TeamMember[] = [
     imageUrl: 'https://drive.google.com/uc?export=view&id=1GX4zkJXEPms6Dz-URMg4UDBujqRcoNH7',
     imageHint: 'professional headshot',
     linkedin: '#',
+  },
+  {
+    id: '16',
+    name: 'Sanika Pawar',
+    role: 'Documentation Team Head',
+    bio: 'Responsible for managing and maintaining all official records and documentation for the student branch.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1M4FP-xdMUwfBgSprbcQUFpnPjn7iEMfc',
+    imageHint: 'professional headshot',
+    linkedin: '#',
   }
 ];
 
