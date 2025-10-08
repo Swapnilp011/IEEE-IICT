@@ -16,8 +16,9 @@ const EventCard = ({ event }: { event: Event }) => (
       <Image
         src={event.imageUrl}
         alt={event.title}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
+        width={400}
+        height={500}
+        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
         data-ai-hint={event.imageHint}
       />
     </div>
