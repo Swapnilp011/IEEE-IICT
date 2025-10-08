@@ -135,11 +135,11 @@ export const mockTeam: TeamMember[] = [
 export const mockGallery: GalleryAlbum[] = [
   {
     id: '1',
-    title: 'Tech Fest 2023',
-    category: 'Festivals',
-    description: 'Our annual tech fest brought together students from across the university for a celebration of technology and innovation.',
-    imageUrl: 'https://picsum.photos/seed/9/400/300',
-    imageHint: 'tech festival',
+    title: 'Hack the Gap',
+    category: 'Hackathon',
+    description: 'A hackathon focused on bridging the technology gap with innovative solutions.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1iE4NHtk3EFEWXFPTPwRm6nEcAgOUkNIT',
+    imageHint: 'hackathon event',
     imageCount: 45,
   },
   {
