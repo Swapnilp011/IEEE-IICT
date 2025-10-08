@@ -49,11 +49,10 @@ export default function GallerySection() {
                 data-ai-hint={album.imageHint} 
             />
         </div>
-        <div className="mt-4">
-            <p className="text-sm text-muted-foreground">This is a preview of the album. More features coming soon.</p>
-             {/* This button's functionality would be restricted to authenticated members */}
-            <Button className="w-full mt-4" disabled>
-                View Full Album (Members Only)
+        <div className="mt-4 space-y-4">
+            <p className="text-sm text-muted-foreground">{album.description}</p>
+            <Button className="w-full" disabled>
+                View More Photos
             </Button>
         </div>
       </DialogContent>
@@ -62,11 +61,11 @@ export default function GallerySection() {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="animate-fade-in-up">
-        <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
+      <div className="animate-fade-in-up text-center">
+        <h1 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
           Gallery
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground md:text-lg">
+        <p className="mt-2 max-w-2xl mx-auto text-muted-foreground md:text-lg">
           A glimpse into our events, workshops, and celebrations.
         </p>
       </div>

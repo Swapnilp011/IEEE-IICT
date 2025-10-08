@@ -25,6 +25,7 @@ export type GalleryAlbum = {
   id: string;
   title: string;
   category: string;
+  description: string;
   imageUrl: string;
   imageHint: string;
   imageCount: number;
