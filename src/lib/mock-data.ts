@@ -81,7 +81,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Atharva Kulkarni',
     role: 'Vice Chairperson',
     bio: 'Assists in managing branch activities and focuses on strategic growth and member engagement.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704f',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1DtV3GCIcHD20LCACjQTvJk4yOTMKL1Qy',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
