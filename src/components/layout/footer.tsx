@@ -50,6 +50,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-8 text-center text-sm">
+            <div className="mb-8">
+                <h4 className="font-headline text-lg font-semibold text-foreground mb-4">Proudly Affiliated With</h4>
+                <div className="flex justify-center items-center gap-8">
+                    <Link href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="font-semibold text-muted-foreground hover:text-primary transition-colors">
+                        IEEE
+                    </Link>
+                    <Link href="https://www.mgmu.ac.in/" target="_blank" rel="noopener noreferrer" className="font-semibold text-muted-foreground hover:text-primary transition-colors">
+                        MGM University, Aurangabad
+                    </Link>
+                </div>
+            </div>
             <div className="flex justify-center space-x-6 mb-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-muted-foreground hover:text-primary">
