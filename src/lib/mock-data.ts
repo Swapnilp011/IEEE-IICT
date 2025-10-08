@@ -104,15 +104,6 @@ export const mockTeam: TeamMember[] = [
     linkedin: '#',
   },
   {
-    id: '11',
-    name: 'Dyaneshwari Salunke',
-    role: 'Secretary',
-    bio: 'Keeps the branch organized and ensures smooth communication between all members and committees.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704c',
-    imageHint: 'professional headshot',
-    linkedin: '#',
-  },
-  {
     id: '4',
     name: 'Syed Zaid',
     role: 'Treasurer',
@@ -130,6 +121,15 @@ export const mockTeam: TeamMember[] = [
     imageHint: 'professional headshot',
     linkedin: '#',
   },
+  {
+    id: '13',
+    name: 'Asjad Pathan',
+    role: 'Technical Head',
+    bio: 'Leads the technical committee, driving workshops and projects that build hands-on skills.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1YBVMkKiPc7csCyhnVc_8SrLRgCXKhgK1',
+    imageHint: 'professional headshot',
+    linkedin: '#',
+  }
 ];
 
 export const mockGallery: GalleryAlbum[] = [
