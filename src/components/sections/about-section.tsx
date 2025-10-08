@@ -28,7 +28,7 @@ const stats = [
 const faculty = [
     {
         name: 'Prof. Dr Sharvari Tamane',
-        role: 'Director IICT MGM UNiversitty',
+        role: 'Director IICT MGM University',
         imageUrl: 'https://drive.google.com/uc?export=view&id=1DR-R5w3a5U_wLZMB4W290M8qdA3lHG4w',
         imageHint: 'professional headshot'
     },
@@ -99,16 +99,23 @@ export default function AboutSection() {
         </p>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {faculty.map((person, index) => (
-            <div key={person.name} className={`flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2 p-6 rounded-xl border bg-card text-card-foreground shadow-sm animate-fade-in-up animation-delay-${400 + index * 200}`}>
-                <Avatar className="h-24 w-24 border-4 border-primary/20">
-                    <AvatarImage src={person.imageUrl} alt={person.name} data-ai-hint={person.imageHint} />
-                    <AvatarFallback>{person.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div>
-                    <h3 className="font-headline text-xl font-bold">{person.name}</h3>
-                    <p className="text-primary font-semibold">{person.role}</p>
+            <Card key={person.name} className={`overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up animation-delay-${400 + index * 200}`}>
+              <div className="flex flex-col sm:flex-row items-center gap-6 p-6">
+                <div className="relative h-28 w-28 flex-shrink-0">
+                  <Image
+                    src={person.imageUrl}
+                    alt={person.name}
+                    fill
+                    className="rounded-full object-cover border-4 border-primary/10"
+                    data-ai-hint={person.imageHint}
+                  />
                 </div>
-            </div>
+                <div className="text-center sm:text-left">
+                  <h3 className="font-headline text-xl font-bold text-foreground">{person.name}</h3>
+                  <p className="text-primary font-semibold text-base">{person.role}</p>
+                </div>
+              </div>
+            </Card>
           ))}
         </div>
       </div>
