@@ -4,59 +4,45 @@
 import Image from 'next/image';
 import { mockGallery } from '@/lib/mock-data';
 import type { GalleryAlbum } from '@/lib/types';
-import { Card } from '@/components/ui/card';
-import { Camera } from 'lucide-react';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Card, CardContent } from '@/components/ui/card';
+import { Camera, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function GallerySection() {
-
-  const AlbumCard = ({ album }: { album: GalleryAlbum }) => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Card className="group relative block w-full overflow-hidden rounded-lg cursor-pointer aspect-square transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg">
+  const AlbumRow = ({ album }: { album: GalleryAlbum }) => (
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1">
+      <div className="grid md:grid-cols-5">
+        <div className="md:col-span-2 relative min-h-[250px] w-full">
           <Image
             src={album.imageUrl}
             alt={album.title}
             fill
-            className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
+            className="object-cover"
             data-ai-hint={album.imageHint}
           />
-          <div className="absolute inset-0 bg-black/5 transition-colors duration-300 group-hover:bg-black/40" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-             <div className="absolute bottom-4 left-4 text-white drop-shadow-md">
-                <h3 className="font-headline text-lg font-bold">{album.title}</h3>
-                 <p className="text-sm text-white/90 flex items-center gap-2">
-                    <Camera className="h-4 w-4" /> {album.imageCount} photos
-                </p>
+        </div>
+        <div className="md:col-span-3">
+          <CardContent className="p-6 h-full flex flex-col justify-between">
+            <div>
+              <p className="text-sm font-semibold text-primary mb-1">{album.category}</p>
+              <h3 className="font-headline text-2xl font-bold text-foreground">{album.title}</h3>
+              <p className="mt-2 text-muted-foreground line-clamp-3">
+                {album.description}
+              </p>
             </div>
-          </div>
-        </Card>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px]">
-        <DialogHeader>
-          <DialogTitle className="font-headline">{album.title}</DialogTitle>
-          <DialogDescription>
-            {album.category} | {album.imageCount} photos
-          </DialogDescription>
-        </DialogHeader>
-        <div className="relative mt-4 aspect-video w-full">
-            <Image 
-                src={album.imageUrl} 
-                alt={album.title} 
-                fill 
-                className="object-cover rounded-md"
-                data-ai-hint={album.imageHint} 
-            />
+            <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+               <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+                    <Camera className="h-4 w-4" /> 
+                    <span>{album.imageCount} photos</span>
+                </div>
+              <Button disabled className="group w-full sm:w-auto">
+                View More Photos <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </div>
+          </CardContent>
         </div>
-        <div className="mt-4 space-y-4">
-            <p className="text-sm text-muted-foreground">{album.description}</p>
-            <Button className="w-full" disabled>
-                View More Photos
-            </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </Card>
   );
 
   return (
@@ -70,10 +56,10 @@ export default function GallerySection() {
         </p>
       </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mt-8">
+      <div className="flex flex-col gap-8 mt-8">
         {mockGallery.map((album, index) => (
-           <div key={album.id} className={`animate-fade-in-up animation-delay-${index * 100 + 300}`}>
-            <AlbumCard album={album} />
+           <div key={album.id} className={`animate-fade-in-up animation-delay-${index * 150 + 300}`}>
+            <AlbumRow album={album} />
           </div>
         ))}
       </div>
