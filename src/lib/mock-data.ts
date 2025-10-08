@@ -40,7 +40,7 @@ export const mockEvents: Event[] = [
     date: '2025-03-19',
     category: 'Competition',
     description: 'An intense coding marathon to challenge and showcase your programming skills.',
-    imageUrl: 'https://picsum.photos/seed/27/400/250',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1PaUtqWqDfoZdXzXNhWvIX7wiw7Ulvc4o',
     imageHint: 'coding marathon',
     status: 'past',
   },
