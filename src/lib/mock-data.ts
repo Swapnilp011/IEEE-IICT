@@ -197,15 +197,6 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 40,
   },
   {
-    id: '5',
-    title: 'Industrial Visit',
-    category: 'Tours',
-    description: 'A visit to a leading tech company, giving students a glimpse into the professional world of engineering.',
-    imageUrl: 'https://picsum.photos/seed/12/400/300',
-    imageHint: 'industrial visit',
-    imageCount: 34,
-  },
-  {
     id: '6',
     title: 'Guest Lectures',
     category: 'Seminars',
