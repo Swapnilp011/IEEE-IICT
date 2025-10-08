@@ -97,22 +97,22 @@ export default function AboutSection() {
         <p className="mt-2 max-w-2xl mx-auto text-center text-muted-foreground">
           Our student branch is fortunate to be guided by experienced faculty members.
         </p>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {faculty.map((person, index) => (
             <Card key={person.name} className={`overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up animation-delay-${400 + index * 200}`}>
-              <div className="flex flex-col sm:flex-row items-center gap-6 p-6">
-                <div className="relative h-28 w-28 flex-shrink-0">
+              <div className="flex flex-col items-center gap-6 p-8">
+                <div className="relative h-36 w-36 flex-shrink-0">
                   <Image
                     src={person.imageUrl}
                     alt={person.name}
                     fill
-                    className="rounded-full object-cover border-4 border-primary/10"
+                    className="rounded-full object-cover border-4 border-primary/10 shadow-lg"
                     data-ai-hint={person.imageHint}
                   />
                 </div>
-                <div className="text-center sm:text-left">
-                  <h3 className="font-headline text-xl font-bold text-foreground">{person.name}</h3>
-                  <p className="text-primary font-semibold text-base">{person.role}</p>
+                <div className="text-center">
+                  <h3 className="font-headline text-2xl font-bold text-foreground">{person.name}</h3>
+                  <p className="text-primary font-semibold text-lg">{person.role}</p>
                 </div>
               </div>
             </Card>
