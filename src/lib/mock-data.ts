@@ -3,6 +3,17 @@ import type { Event, TeamMember, GalleryAlbum } from './types';
 
 export const mockEvents: Event[] = [
   {
+    id: '13',
+    title: 'IEEE Membership Drive',
+    date: 'TBD',
+    category: 'Recruitment',
+    description: 'Join the IEEE Student Branch to be part of a vibrant community of innovators and leaders. Register now to get notified about our recruitment drive.',
+    imageUrl: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageHint: 'students team collaborating',
+    status: 'upcoming',
+    registrationLink: 'https://forms.gle/6UFqbdLw1uaoiYnv5',
+  },
+  {
     id: '1',
     title: 'INNOVISTA',
     date: '2025-10-08',

@@ -26,7 +26,7 @@ const EventCard = ({ event }: { event: Event }) => (
             <Badge variant="secondary" className="font-semibold">{event.category}</Badge>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Calendar className="h-4 w-4" />
-                <span>{format(new Date(event.date), 'MMM d, yyyy')}</span>
+                <span>{event.date === 'TBD' ? 'Coming Soon' : format(new Date(event.date), 'MMM d, yyyy')}</span>
             </div>
         </div>
         <h3 className="font-headline text-xl font-bold text-foreground mb-2 truncate">{event.title}</h3>
