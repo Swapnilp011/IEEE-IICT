@@ -166,7 +166,7 @@ export default function Header() {
     }
 
     return (
-      <Button asChild size="sm" variant="outline">
+      <Button asChild size="default" variant="outline">
         <Link href="/login">
           <LogIn className="mr-2 h-4 w-4" />
           Login
@@ -190,7 +190,7 @@ export default function Header() {
                 href={href}
                 onClick={(e) => handleLinkClick(e, href)}
                 className={cn(
-                    'text-sm font-medium transition-colors',
+                    'text-base font-medium transition-colors',
                     getLinkClassName(href)
                 )}
                 >
