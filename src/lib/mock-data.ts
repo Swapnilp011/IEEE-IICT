@@ -197,15 +197,6 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 40,
   },
   {
-    id: '6',
-    title: 'Guest Lectures',
-    category: 'Seminars',
-    description: 'Industry experts shared their knowledge and experience on a variety of cutting-edge topics.',
-    imageUrl: 'https://picsum.photos/seed/13/400/300',
-    imageHint: 'lecture hall',
-    imageCount: 18,
-  },
-  {
     id: '7',
     title: 'Outreach Program',
     category: 'Social',
