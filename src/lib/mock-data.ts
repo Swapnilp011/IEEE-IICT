@@ -8,7 +8,7 @@ export const mockEvents: Event[] = [
     date: '2025-10-08',
     category: 'Competition',
     description: 'A UI/UX design competition to challenge your creativity and design skills.',
-    imageUrl: 'https://picsum.photos/seed/25/400/250',
+    imageUrl: '/img.jpg',
     imageHint: 'UI UX competition',
     status: 'upcoming',
     registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfk6ZvV5KSmKO0tjC0oJChfHfsNkN-lg9J-ojfehm6sb-RlMw/viewform?usp=header',
