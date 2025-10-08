@@ -115,7 +115,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Swapnil Mane',
     role: 'Treasurer',
     bio: 'Manages financial records and ensures transparent and efficient use of branch funds.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e290267042',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1xO6g08iQ5HaXe35pVTcKErA7oWoWJBhT',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
