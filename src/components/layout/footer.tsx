@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-border/50 pt-8 text-center text-sm">
             <div className="mb-8">
                 <h4 className="font-headline text-lg font-semibold text-foreground mb-4">Proudly Affiliated With</h4>
-                <div className="flex justify-center items-center gap-8 filter grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="flex justify-center items-center gap-8">
                     <Link href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="relative h-12 w-28">
                         <Image src="https://upload.wikimedia.org/wikipedia/commons/2/21/IEEE_logo.svg" alt="IEEE Logo" fill className="object-contain" />
                     </Link>
