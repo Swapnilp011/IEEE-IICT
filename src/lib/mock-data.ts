@@ -170,6 +170,15 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 45,
   },
   {
+    id: '7',
+    title: 'Code A Thon',
+    category: 'Competition',
+    description: 'An intense coding marathon to challenge and showcase your programming skills.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1PaUtqWqDfoZdXzXNhWvIX7wiw7Ulvc4o',
+    imageHint: 'coding marathon',
+    imageCount: 30,
+  },
+  {
     id: '2',
     title: 'AI Workshop',
     category: 'Workshops',
