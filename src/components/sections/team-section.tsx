@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -11,13 +12,12 @@ import { cn } from '@/lib/utils';
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
     <Card className="group relative overflow-hidden rounded-lg border shadow-sm h-full transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1 w-full max-w-sm">
-      <div className="aspect-[4/5]">
+      <div className="aspect-[4/5] relative">
         <Image
           src={member.imageUrl}
           alt={member.name}
-          width={400}
-          height={500}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+          fill
+          className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
           data-ai-hint={member.imageHint}
         />
       </div>
@@ -32,10 +32,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
         <p className="text-sm text-foreground/80">{member.role}</p>
         <p className="mt-2 text-sm text-foreground/90 flex-grow">{member.bio}</p>
         <div className="mt-4 flex items-center space-x-4">
-          <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary">
-            <Linkedin className="h-5 w-5" />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
+          {member.linkedin && member.linkedin !== '#' && (
+            <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+            </Link>
+          )}
         </div>
       </div>
     </Card>
@@ -75,9 +77,7 @@ export default function TeamSection() {
             <TeamSectionHeader title="Leadership" />
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {leadership.map((member) => (
-                    <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} />
-                    </div>
+                    <TeamMemberCard key={member.id} member={member} />
                 ))}
             </div>
         </section>
@@ -87,9 +87,7 @@ export default function TeamSection() {
             <TeamSectionHeader title="Core Committee" />
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {coreCommittee.map((member) => (
-                    <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} />
-                    </div>
+                    <TeamMemberCard key={member.id} member={member} />
                 ))}
             </div>
         </section>
@@ -99,9 +97,7 @@ export default function TeamSection() {
             <TeamSectionHeader title="Technical Leads" />
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 {technicalHeads.map((member) => (
-                    <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} />
-                    </div>
+                   <TeamMemberCard key={member.id} member={member} />
                 ))}
             </div>
         </section>
