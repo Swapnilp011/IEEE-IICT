@@ -11,19 +11,14 @@ import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="group relative w-full max-w-sm overflow-hidden rounded-2xl transition-all duration-500 will-change-transform hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2">
-    <div className="absolute inset-0 z-0">
-      <Image
-        src={event.imageUrl}
-        alt={event.title}
-        width={400}
-        height={500}
-        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-        data-ai-hint={event.imageHint}
-      />
-    </div>
+  <Card className="group relative w-full max-w-sm h-[500px] overflow-hidden rounded-2xl transition-all duration-500 will-change-transform hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2">
+    <div
+      style={{ backgroundImage: `url(${event.imageUrl})` }}
+      className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+      data-ai-hint={event.imageHint}
+    ></div>
 
-    <div className="relative z-10 grid h-full min-h-[380px] grid-rows-[1fr_auto] bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
+    <div className="relative z-10 grid h-full grid-rows-[1fr_auto] bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
       <div className="flex justify-between">
         <Badge variant="default" className="bg-white/20 backdrop-blur-sm border-white/30 text-white">
           {event.category}
