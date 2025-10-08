@@ -61,7 +61,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Vijaya Ahire',
     role: 'Student Branch Counsellor',
     bio: 'Guides the student branch with her experience and wisdom, ensuring alignment with academic goals.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704d',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1yuDKwBVw1LnUdyTo64yaqIcdjWJa4_mZ',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
