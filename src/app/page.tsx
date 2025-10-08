@@ -48,12 +48,12 @@ function AnimatedSection({ id, className, children }: { id: string; className?: 
     <section 
       id={id} 
       className={cn(
-        'py-16 md:py-24 transition-opacity duration-1000 ease-out transform', 
+        'py-16 md:py-24 transition-opacity duration-1000 ease-out', 
         className, 
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        isVisible ? 'opacity-100' : 'opacity-0'
       )}
     >
-      {children}
+      {isVisible ? children : <div className="h-[50vh]"></div>}
     </section>
   );
 }
@@ -83,19 +83,19 @@ export default function Home() {
                 src={heroImage.imageUrl}
                 alt={heroImage.description}
                 fill
-                className="object-cover"
+                className="object-cover animate-pan-in"
                 data-ai-hint={heroImage.imageHint}
                 priority
              />
         )}
         <div className="relative container z-20 mx-auto flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="font-headline text-5xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl animate-fade-in-down">
             Fostering Innovation, Connecting Minds.
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg font-semibold text-foreground drop-shadow-md md:text-xl">
+          <p className="mt-6 max-w-3xl mx-auto text-lg font-semibold text-foreground drop-shadow-md md:text-xl animate-fade-in-down animation-delay-300">
             Welcome to the IEEE Student Branch at IICT, MGM University.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in-up animation-delay-600">
             <Button asChild size="lg" className="group" >
               <Link href="https://forms.gle/6UFqbdLw1uaoiYnv5" target="_blank" rel="noopener noreferrer">
                 Become a Member <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

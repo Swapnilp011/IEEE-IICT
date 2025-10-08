@@ -44,8 +44,8 @@ export default function ContactSection() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 rounded-xl border bg-card text-card-foreground shadow-lg p-8 md:p-12">
-          <div className="flex flex-col justify-between">
+        <div className="grid md:grid-cols-2 gap-12 rounded-xl border bg-card text-card-foreground shadow-lg p-8 md:p-12 animate-fade-in-up">
+          <div className="flex flex-col justify-between animate-fade-in-up animation-delay-200">
             <div>
               <h1 className="font-headline text-3xl font-bold tracking-tight md:text-4xl text-primary">
                 Get in Touch
@@ -85,7 +85,7 @@ export default function ContactSection() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="animate-fade-in-up animation-delay-400">
             <ContactForm />
           </div>
         </div>

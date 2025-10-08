@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 const { fontFamily } = require("tailwindcss/defaultTheme")
@@ -73,18 +74,52 @@ const config = {
           to: { height: "0" },
         },
         "pan-in": {
-          "0%": { transform: "scale(1.1) translate(5%, 5%)", filter: "blur(4px)", opacity: "0.8" },
-          "100%": { transform: "scale(1) translate(0, 0)", filter: "blur(0)", opacity: "1" },
+          "0%": { transform: "scale(1.1)", filter: "blur(4px)", opacity: "0.8" },
+          "100%": { transform: "scale(1)", filter: "blur(0)", opacity: "1" },
+        },
+        "fade-in-down": {
+            "0%": {
+                opacity: "0",
+                transform: "translateY(-10px)"
+            },
+            "100%": {
+                opacity: "1",
+                transform: "translateY(0)"
+            }
+        },
+        "fade-in-up": {
+            "0%": {
+                opacity: "0",
+                transform: "translateY(10px)"
+            },
+            "100%": {
+                opacity: "1",
+                transform: "translateY(0)"
+            }
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pan-in": "pan-in 1.5s ease-out forwards",
+        "fade-in-down": "fade-in-down 0.5s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.5s ease-out forwards",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: any }) {
+      const newUtilities: { [key: string]: any } = {};
+      const delays = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+      delays.forEach(delay => {
+        newUtilities[`.animation-delay-${delay}`] = {
+          animationDelay: `${delay}ms`,
+        };
+      });
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 } satisfies Config
 
 export default config;
