@@ -50,7 +50,7 @@ export const mockEvents: Event[] = [
     date: '2025-02-22',
     category: 'Competition',
     description: 'A quiz competition to test your knowledge of the Python programming language.',
-    imageUrl: 'https://picsum.photos/seed/28/400/250',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1G8jtgIA01N-GVtb7PhzQOHC16tICiV1p',
     imageHint: 'python quiz',
     status: 'past',
   },
