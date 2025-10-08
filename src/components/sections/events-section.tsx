@@ -1,6 +1,6 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { mockEvents } from '@/lib/mock-data';
@@ -11,45 +11,42 @@ import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="group relative w-full max-w-sm h-[500px] overflow-hidden rounded-2xl transition-all duration-500 will-change-transform hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2">
-    <div
-      style={{ backgroundImage: `url(${event.imageUrl})` }}
-      className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-      data-ai-hint={event.imageHint}
-    ></div>
-
-    <div className="relative z-10 grid h-full grid-rows-[1fr_auto] bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
-      <div className="flex justify-between">
-        <Badge variant="default" className="bg-white/20 backdrop-blur-sm border-white/30 text-white">
-          {event.category}
-        </Badge>
+    <Card className="group w-full max-w-sm overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/20 h-full flex flex-col">
+      <div className="relative w-full h-56 overflow-hidden">
+        <Image
+          src={event.imageUrl}
+          alt={event.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          data-ai-hint={event.imageHint}
+        />
       </div>
-
-      <div className="space-y-3">
-        <h3 className="font-headline text-3xl font-bold">{event.title}</h3>
-        <div className="flex items-center gap-2 text-sm text-white/80">
-          <Calendar className="h-4 w-4" />
-          <span>{format(new Date(event.date), 'MMMM d, yyyy')}</span>
+      <div className="p-4 flex flex-col flex-grow">
+        <div className="flex justify-between items-center mb-2">
+            <Badge variant="secondary" className="font-semibold">{event.category}</Badge>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Calendar className="h-4 w-4" />
+                <span>{format(new Date(event.date), 'MMM d, yyyy')}</span>
+            </div>
         </div>
-        <p className="text-sm text-white/90 line-clamp-2">{event.description}</p>
-        
-        <div className="pt-4">
+        <h3 className="font-headline text-xl font-bold text-foreground mb-2 truncate">{event.title}</h3>
+        <p className="text-sm text-muted-foreground line-clamp-3 flex-grow">{event.description}</p>
+        <div className="mt-4">
           {event.status === 'upcoming' && event.registrationLink ? (
-            <Button asChild className="w-full group bg-primary/90 hover:bg-primary backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
+            <Button asChild className="w-full group">
               <Link href={event.registrationLink} target="_blank" rel="noopener noreferrer">
                 Register Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           ) : (
-            <Button variant="outline" className="w-full bg-white/10 border-white/20 text-white/80 backdrop-blur-sm" disabled>
+            <Button variant="outline" className="w-full" disabled>
               Event Concluded
             </Button>
           )}
         </div>
       </div>
-    </div>
-  </Card>
-);
+    </Card>
+  );
 
 export default function EventsSection() {
   const upcomingEvents = mockEvents.filter((e) => e.status === 'upcoming');
@@ -72,7 +69,7 @@ export default function EventsSection() {
           <TabsTrigger value="past">Past Events</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming" className="mt-8">
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {upcomingEvents.map((event, index) => (
               <div key={event.id} className={`animate-fade-in-up animation-delay-${index * 200 + 400}`}>
                 <EventCard event={event} />
@@ -87,7 +84,7 @@ export default function EventsSection() {
           )}
         </TabsContent>
         <TabsContent value="past" className="mt-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-stretch">
             {pastEvents.map((event, index) => (
                <div key={event.id} className={`animate-fade-in-up animation-delay-${index * 150 + 400}`}>
                 <EventCard event={event} />
