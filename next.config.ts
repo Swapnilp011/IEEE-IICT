@@ -64,6 +64,12 @@ pathname: '/**',
         hostname: 'community.nasscom.in',
         port: '',
         pathname: '/**',
+      },
+       {
+        protocol: 'https',
+        hostname: 'blog.interview-skills.co.uk',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
