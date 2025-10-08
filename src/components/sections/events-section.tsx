@@ -12,8 +12,8 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
 const EventCard = ({ event }: { event: Event }) => (
-  <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-auto shadow-md">
-    <div className="relative h-52 w-full">
+  <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-2 w-full sm:w-[350px] shadow-md">
+    <div className="relative w-full aspect-video">
       <Image
         src={event.imageUrl}
         alt={event.title}
