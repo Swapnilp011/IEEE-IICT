@@ -99,7 +99,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Aarya Padalkar',
     role: 'Secretary',
     bio: 'Manages all documentation, communications, and organizational tasks for the student branch.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704b',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1G8_0FIZObMTD8tY4hOvrqePiu7WHITIP',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
