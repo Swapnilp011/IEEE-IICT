@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import Logo from '@/components/logo';
+import Image from 'next/image';
 
 const socialLinks = [
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -10,7 +11,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-muted text-muted-foreground">
+    <footer className="bg-secondary text-muted-foreground">
       <div className="container mx-auto max-w-screen-2xl px-4 py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
@@ -49,15 +50,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t pt-8 text-center text-sm">
+        <div className="mt-8 border-t border-border/50 pt-8 text-center text-sm">
             <div className="mb-8">
                 <h4 className="font-headline text-lg font-semibold text-foreground mb-4">Proudly Affiliated With</h4>
-                <div className="flex justify-center items-center gap-8">
-                    <Link href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="font-semibold text-muted-foreground hover:text-primary transition-colors">
-                        IEEE
+                <div className="flex justify-center items-center gap-8 filter grayscale hover:grayscale-0 transition-all duration-300">
+                    <Link href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="relative h-12 w-28">
+                        <Image src="https://upload.wikimedia.org/wikipedia/commons/2/21/IEEE_logo.svg" alt="IEEE Logo" fill className="object-contain" />
                     </Link>
-                    <Link href="https://www.mgmu.ac.in/" target="_blank" rel="noopener noreferrer" className="font-semibold text-muted-foreground hover:text-primary transition-colors">
-                        MGM University, Aurangabad
+                    <Link href="https://www.mgmu.ac.in/" target="_blank" rel="noopener noreferrer" className="relative h-16 w-32">
+                        <Image src="https://cdn.mgmtech.org/static/mgmu.ac.in/assets/images/LogoMGM.svg" alt="MGM University Logo" fill className="object-contain" />
                     </Link>
                 </div>
             </div>
