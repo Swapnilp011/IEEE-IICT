@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -13,11 +12,14 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel"
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <Card className="group relative overflow-hidden rounded-lg border shadow-sm">
+  <Card className="group relative overflow-hidden rounded-lg border shadow-sm h-full">
     <div className="aspect-square">
       <Image
         src={member.imageUrl}
@@ -49,6 +51,27 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 );
 
 export default function TeamSection() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCurrent(api.selectedScrollSnap())
+    
+    const handleSelect = () => {
+      setCurrent(api.selectedScrollSnap())
+    }
+
+    api.on("select", handleSelect)
+
+    return () => {
+      api.off("select", handleSelect)
+    }
+  }, [api])
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-10">
       <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
@@ -63,16 +86,23 @@ export default function TeamSection() {
 
       <div className="mt-12">
         <Carousel
+          setApi={setApi}
           opts={{
             align: "center",
             loop: true,
           }}
           className="w-full"
         >
-          <CarouselContent>
-            {mockTeam.map((member) => (
-              <CarouselItem key={member.id} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <div className="p-1">
+          <CarouselContent className="-ml-1">
+            {mockTeam.map((member, index) => (
+              <CarouselItem 
+                key={member.id} 
+                className={cn(
+                  "basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4 transition-all duration-300",
+                   index === current ? 'scale-105 opacity-100' : 'scale-90 opacity-60'
+                )}
+              >
+                <div className="p-1 h-full">
                   <TeamMemberCard member={member} />
                 </div>
               </CarouselItem>
