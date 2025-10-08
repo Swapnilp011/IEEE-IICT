@@ -70,6 +70,12 @@ pathname: '/**',
         hostname: 'blog.interview-skills.co.uk',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
