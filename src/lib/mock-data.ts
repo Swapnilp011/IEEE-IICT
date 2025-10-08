@@ -138,6 +138,15 @@ export const mockTeam: TeamMember[] = [
     imageUrl: 'https://drive.google.com/uc?export=view&id=1Sx9j_r99umdMDZsXFtkvbf1B91CJXIJr',
     imageHint: 'professional headshot',
     linkedin: '#',
+  },
+  {
+    id: '15',
+    name: 'Gayatri Kasbekar',
+    role: 'Creative Head',
+    bio: 'Leads the creative direction of the student branch, managing design and visual content for all events and communications.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1GX4zkJXEPms6Dz-URMg4UDBujqRcoNH7',
+    imageHint: 'professional headshot',
+    linkedin: '#',
   }
 ];
 
