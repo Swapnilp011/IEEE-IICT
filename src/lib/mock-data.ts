@@ -30,7 +30,7 @@ export const mockEvents: Event[] = [
     date: '2025-03-22',
     category: 'Competition',
     description: 'A hackathon focused on bridging the technology gap with innovative solutions.',
-    imageUrl: 'https://picsum.photos/seed/26/400/250',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1iE4NHtk3EFEWXFPTPwRm6nEcAgOUkNIT',
     imageHint: 'hackathon event',
     status: 'past',
   },
