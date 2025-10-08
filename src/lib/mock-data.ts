@@ -171,11 +171,11 @@ export const mockGallery: GalleryAlbum[] = [
   },
   {
     id: '2',
-    title: 'AI Workshop',
-    category: 'Workshops',
-    description: 'A hands-on workshop where students learned the fundamentals of Artificial Intelligence and Machine Learning.',
+    title: 'Py Quest',
+    category: 'Competition',
+    description: 'A quiz competition to test your knowledge of the Python programming language.',
     imageUrl: 'https://drive.google.com/uc?export=view&id=1G8jtgIA01N-GVtb7PhzQOHC16tICiV1p',
-    imageHint: 'AI workshop',
+    imageHint: 'python quiz',
     imageCount: 28,
   },
   {
