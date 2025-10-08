@@ -3,7 +3,7 @@ import AdminForm from '@/app/admin/admin-form';
 
 export default function AdminSection() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-12">
       <div className="max-w-3xl mx-auto">
         <div className="text-center">
           <h1 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
@@ -13,7 +13,7 @@ export default function AdminSection() {
             Create and manage content for the website. Add new events or team members.
           </p>
         </div>
-        <div className="mt-12">
+        <div className="mt-8">
           <AdminForm />
         </div>
       </div>

@@ -44,7 +44,7 @@ export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about');
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-10">
+    <div className="container mx-auto px-4">
       <div className="animate-fade-in-up">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
           About <span className="text-primary">IEEE</span> Student Branch
@@ -54,21 +54,21 @@ export default function AboutSection() {
         </p>
       </div>
 
-      <div className="mt-16 grid gap-12 md:grid-cols-5 md:gap-16 items-center">
+      <div className="mt-12 grid gap-12 md:grid-cols-5 md:gap-16 items-center">
         <div className="md:col-span-3 animate-fade-in-up animation-delay-200">
           <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission & Vision</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed text-lg">
             Our mission is to foster core knowledge, leadership, and managerial skills among students. We aim to bridge the gap between academia and industry by providing a platform for students to interact with peers and professionals globally, ensuring they are well-prepared for their future careers.
           </p>
-           <div className="mt-8">
+           <div className="mt-6">
             <h3 className="font-headline text-2xl font-semibold text-primary/90">Our History</h3>
-             <p className="mt-4 text-muted-foreground leading-relaxed">
+             <p className="mt-3 text-muted-foreground leading-relaxed">
                 The IEEE Student Branch at UDICT, MGM University was officially established on April 28, 2023. It was formed through the dedicated efforts of key faculty and student members who envisioned a community for tech enthusiasts to thrive.
              </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <h3 className="font-headline text-2xl font-semibold text-primary/90">About IEEE</h3>
-             <ul className="mt-4 space-y-3 text-muted-foreground">
+             <ul className="mt-3 space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                     <Info className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
                     <span>IEEE is the world's largest technical professional organization for the advancement of technology. Student membership offers access to a vast network of professionals, technical resources, and career development opportunities.</span>
@@ -92,12 +92,12 @@ export default function AboutSection() {
         </div>
       </div>
       
-      <div className="mt-24 animate-fade-in-up">
+      <div className="mt-16 animate-fade-in-up">
         <h2 className="font-headline text-3xl font-semibold text-center text-primary">Faculty Guidance</h2>
         <p className="mt-2 max-w-2xl mx-auto text-center text-muted-foreground">
           Our student branch is fortunate to be guided by experienced faculty members.
         </p>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {faculty.map((person, index) => (
             <div key={person.name} className={`flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2 p-6 rounded-xl border bg-card text-card-foreground shadow-sm animate-fade-in-up animation-delay-${400 + index * 200}`}>
                 <Avatar className="h-24 w-24 border-4 border-primary/20">
@@ -114,9 +114,9 @@ export default function AboutSection() {
       </div>
 
 
-      <div className="mt-24 animate-fade-in-up">
+      <div className="mt-16 animate-fade-in-up">
         <h2 className="font-headline text-3xl font-semibold text-center text-primary">Our Journey in Numbers</h2>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <div key={stat.label} className={`text-center transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-2 p-6 rounded-xl border bg-card text-card-foreground shadow-sm animate-fade-in-up animation-delay-${400 + index * 200}`}>
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">

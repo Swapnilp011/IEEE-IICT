@@ -48,7 +48,7 @@ function AnimatedSection({ id, className, children }: { id: string; className?: 
     <section 
       id={id} 
       className={cn(
-        'py-16 md:py-24 transition-opacity duration-1000 ease-out', 
+        'py-12 md:py-16 transition-opacity duration-1000 ease-out', 
         className, 
         isVisible ? 'opacity-100' : 'opacity-0'
       )}

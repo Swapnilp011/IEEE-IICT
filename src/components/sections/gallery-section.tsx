@@ -61,7 +61,7 @@ export default function GallerySection() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4">
       <div className="animate-fade-in-up">
         <h1 className="font-headline text-3xl font-bold tracking-tight text-center md:text-4xl">
           Gallery

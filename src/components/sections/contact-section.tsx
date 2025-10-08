@@ -42,7 +42,7 @@ const socialLinks = [
 
 export default function ContactSection() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 rounded-xl border bg-card text-card-foreground shadow-lg p-8 md:p-12 animate-fade-in-up">
           <div className="flex flex-col justify-between animate-fade-in-up animation-delay-200">

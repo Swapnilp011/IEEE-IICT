@@ -56,7 +56,7 @@ export default function EventsSection() {
   const pastEvents = mockEvents.filter((e) => e.status === 'past');
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-10">
+    <div className="container mx-auto px-4">
       <div className="animate-fade-in-up">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
           Our <span className="text-primary">Events</span>
@@ -66,7 +66,7 @@ export default function EventsSection() {
         </p>
       </div>
 
-      <Tabs defaultValue="upcoming" className="mt-12 animate-fade-in-up animation-delay-300">
+      <Tabs defaultValue="upcoming" className="mt-8 animate-fade-in-up animation-delay-300">
         <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto">
           <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
           <TabsTrigger value="past">Past Events</TabsTrigger>

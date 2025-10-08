@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -73,7 +74,7 @@ export default function TeamSection() {
   }, [api])
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-10">
+    <div className="container mx-auto px-4">
       <h1 className="font-headline text-4xl font-bold tracking-tight text-center md:text-5xl">
         Meet Our <span className="text-primary">Team</span>
       </h1>
@@ -84,7 +85,7 @@ export default function TeamSection() {
         Recruitment for the tenure of 2026 is going to start soon. Stay tuned!
       </p>
 
-      <div className="mt-12">
+      <div className="mt-8">
         <Carousel
           setApi={setApi}
           opts={{
