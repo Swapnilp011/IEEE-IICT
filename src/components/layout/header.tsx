@@ -22,6 +22,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import React from 'react';
 
 
 const navLinks = [
@@ -183,21 +184,25 @@ export default function Header() {
           <Logo />
         </Link>
         <div className="flex items-center gap-4">
-            <nav className="hidden text-foreground md:flex md:items-center md:gap-6">
-            {isMounted && navLinks.map(({ href, label }) => (
-                <Link
-                key={href}
-                href={href}
-                onClick={(e) => handleLinkClick(e, href)}
-                className={cn(
-                    'text-base font-medium transition-colors',
-                    getLinkClassName(href)
-                )}
-                >
-                {label}
-                </Link>
+          <nav className="hidden text-foreground md:flex md:items-center md:gap-8">
+            {isMounted && navLinks.map(({ href, label }, index) => (
+                <React.Fragment key={href}>
+                    <Link
+                    href={href}
+                    onClick={(e) => handleLinkClick(e, href)}
+                    className={cn(
+                        'text-base font-medium transition-colors',
+                        getLinkClassName(href)
+                    )}
+                    >
+                    {label}
+                    </Link>
+                    {index < navLinks.length - 1 && (
+                        <span className="h-4 w-px bg-border" />
+                    )}
+                </React.Fragment>
             ))}
-            </nav>
+          </nav>
 
             <div className="flex items-center gap-2">
               {isMounted && renderAuthControls()}
