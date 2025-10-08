@@ -129,6 +129,15 @@ export const mockTeam: TeamMember[] = [
     imageUrl: 'https://drive.google.com/uc?export=view&id=1YBVMkKiPc7csCyhnVc_8SrLRgCXKhgK1',
     imageHint: 'professional headshot',
     linkedin: '#',
+  },
+  {
+    id: '14',
+    name: 'Farooqui Furqan',
+    role: 'Logistic Head',
+    bio: 'Responsible for planning and coordinating the logistics for all branch events and activities.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1Sx9j_r99umdMDZsXFtkvbf1B91CJXIJr',
+    imageHint: 'professional headshot',
+    linkedin: '#',
   }
 ];
 
@@ -188,4 +197,3 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 22,
   },
 ];
-
