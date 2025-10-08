@@ -113,13 +113,13 @@ export default function Home() {
           <AnimatedSection id="about">
             <AboutSection />
           </AnimatedSection>
-          <AnimatedSection id="events" className="bg-secondary/60">
+          <AnimatedSection id="events" className="bg-muted/40">
             <EventsSection />
           </AnimatedSection>
           <AnimatedSection id="gallery">
             <GallerySection />
           </AnimatedSection>
-          <AnimatedSection id="team" className="bg-secondary/60">
+          <AnimatedSection id="team" className="bg-muted/40">
             <TeamSection />
           </AnimatedSection>
           <AnimatedSection id="contact">
