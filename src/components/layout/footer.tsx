@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-secondary text-muted-foreground">
       <div className="container mx-auto max-w-screen-2xl px-4 py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="space-y-4">
+          <div className="flex items-center md:items-start">
             <Logo />
           </div>
 
