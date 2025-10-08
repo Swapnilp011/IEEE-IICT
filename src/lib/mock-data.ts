@@ -60,7 +60,7 @@ export const mockEvents: Event[] = [
     date: '2025-02-26',
     category: 'Competition',
     description: 'An aptitude test to sharpen your problem-solving and logical reasoning skills.',
-    imageUrl: 'https://media.licdn.com/dms/image/v2/D5612AQEB9ojqNMqdyQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1683796312613?e=2147483647&v=beta&t=6_AHSUdISP6tBlYVT_aMeikM2Y7846IIxWOvmpLf3aw',
+    imageUrl: 'https://media.licdn.com/dms/image/v2/D5612AQEB9ojqNMqdyQ/article-cover_image-shrink_600_2000/0/1683796312613?e=2147483647&v=beta&t=6_AHSUdISP6tBlYVT_aMeikM2Y7846IIxWOvmpLf3aw',
     imageHint: 'aptitude test',
     status: 'past',
   },
@@ -188,3 +188,4 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 22,
   },
 ];
+
