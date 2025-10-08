@@ -69,7 +69,7 @@ export default function EventsSection() {
           <TabsTrigger value="past">Past Events</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming" className="mt-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {upcomingEvents.map((event, index) => (
               <div key={event.id} className={`animate-fade-in-up animation-delay-${index * 200 + 400}`}>
                 <EventCard event={event} />
