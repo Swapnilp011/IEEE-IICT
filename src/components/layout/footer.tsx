@@ -65,7 +65,6 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="md:ml-8">&copy; {new Date().getFullYear()} IEEE Student Branch, IICT MGMU. All Rights Reserved.</p>
               <div className="flex items-center gap-4 md:mr-8">
-                  <h4 className="font-headline text-md font-semibold text-foreground hidden md:block">Follow Us</h4>
                   <div className="flex space-x-6">
                     {socialLinks.map(({ icon: Icon, href, label }) => (
                       <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-muted-foreground hover:text-primary">
