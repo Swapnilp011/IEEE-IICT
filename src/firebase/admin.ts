@@ -1,20 +1,20 @@
 
 import { initializeApp, getApps, getApp, App, cert } from 'firebase-admin/app';
-import { getAuth } from 'firebase-admin/auth';
-import { getFirestore } from 'firebase-admin/firestore';
+import { getAuth, Auth } from 'firebase-admin/auth';
+import { getFirestore, Firestore } from 'firebase-admin/firestore';
 import { cookies } from 'next/headers';
 
 const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
   ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
   : undefined;
 
-function getAdminApp(): App {
+function getAdminApp(): App | null {
   if (getApps().length > 0) {
     return getApp();
   }
   
   if (!serviceAccount) {
-    throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY environment variable is not set.');
+    return null;
   }
 
   return initializeApp({
@@ -22,8 +22,11 @@ function getAdminApp(): App {
   });
 }
 
-export function getAdminSdks() {
+export function getAdminSdks(): { auth: Auth; firestore: Firestore } | null {
   const app = getAdminApp();
+  if (!app) {
+    return null;
+  }
   return {
     auth: getAuth(app),
     firestore: getFirestore(app),
@@ -31,7 +34,13 @@ export function getAdminSdks() {
 }
 
 export async function getCurrentUser() {
-    const { auth } = getAdminSdks();
+    const adminSdks = getAdminSdks();
+    if (!adminSdks) {
+        console.warn('Firebase Admin SDK not initialized. Skipping user check.');
+        return null;
+    }
+
+    const { auth } = adminSdks;
     const sessionCookie = cookies().get('__session')?.value;
 
     if (!sessionCookie) {

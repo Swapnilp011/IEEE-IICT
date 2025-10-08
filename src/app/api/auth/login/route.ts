@@ -4,7 +4,11 @@ import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
-  const { auth } = getAdminSdks();
+  const adminSdks = getAdminSdks();
+  if (!adminSdks) {
+    return NextResponse.json({ error: 'Firebase Admin SDK not configured' }, { status: 500 });
+  }
+  const { auth } = adminSdks;
   const { idToken } = await request.json();
 
   if (!idToken) {

@@ -31,7 +31,11 @@ export async function createContentAction(prevState: any, formData: FormData) {
   const contentType = formData.get('contentType');
 
   try {
-    const { firestore } = getAdminSdks();
+    const adminSdks = getAdminSdks();
+    if (!adminSdks) {
+        throw new Error('Firebase Admin SDK is not configured. Please set FIREBASE_SERVICE_ACCOUNT_KEY.');
+    }
+    const { firestore } = adminSdks;
 
     if (contentType === 'event') {
         const parsed = EventSchema.safeParse({
