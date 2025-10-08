@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
-    <Card className="group relative overflow-hidden rounded-lg border shadow-sm h-full transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1 w-full max-w-sm">
+    <Card className="group relative overflow-hidden rounded-lg border shadow-sm h-full transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1 w-full max-w-xs">
       <div className="aspect-[4/5] relative">
         <Image
           src={member.imageUrl}
@@ -56,7 +56,7 @@ const TeamSectionHeader = ({ title }: { title: string }) => (
 export default function TeamSection() {
   const leadership = mockTeam.filter(m => m.role.toLowerCase().includes('chairperson'));
   const coreCommittee = mockTeam.filter(m => m.role.toLowerCase().includes('secretary') || m.role.toLowerCase().includes('treasurer'));
-  const technicalHeads = mockTeam.filter(m => m.role.toLowerCase().includes('technical head'));
+  const heads = mockTeam.filter(m => m.role.toLowerCase().includes('head'));
 
   return (
     <div className="container mx-auto px-4">
@@ -92,11 +92,11 @@ export default function TeamSection() {
             </div>
         </section>
 
-        {/* Technical Heads Section */}
+        {/* Heads Section */}
         <section className="animate-fade-in-up animation-delay-400">
-            <TeamSectionHeader title="Technical Leads" />
+            <TeamSectionHeader title="Heads" />
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-                {technicalHeads.map((member) => (
+                {heads.map((member) => (
                    <TeamMemberCard key={member.id} member={member} />
                 ))}
             </div>
