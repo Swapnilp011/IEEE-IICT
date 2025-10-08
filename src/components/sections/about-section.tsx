@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Calendar, Award, GraduationCap, Briefcase, Info } from 'lucide-react';
+import { Users, Calendar, Award, GraduationCap, Briefcase, Info, Target, Landmark, Rocket } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockTeam } from '@/lib/mock-data';
 
@@ -54,42 +54,40 @@ export default function AboutSection() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-12 md:grid-cols-5 md:gap-16 items-center">
-        <div className="md:col-span-3 animate-fade-in-up animation-delay-200">
-          <h2 className="font-headline text-3xl font-semibold text-primary">Our Mission & Vision</h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed text-lg">
-            Our mission is to foster core knowledge, leadership, and managerial skills among students. We aim to bridge the gap between academia and industry by providing a platform for students to interact with peers and professionals globally, ensuring they are well-prepared for their future careers.
-          </p>
-           <div className="mt-6">
-            <h3 className="font-headline text-2xl font-semibold text-primary/90">Our History</h3>
-             <p className="mt-3 text-muted-foreground leading-relaxed">
-                The IEEE Student Branch at UDICT, MGM University was officially established on April 28, 2023. It was formed through the dedicated efforts of key faculty and student members who envisioned a community for tech enthusiasts to thrive.
-             </p>
-          </div>
-          <div className="mt-6">
-            <h3 className="font-headline text-2xl font-semibold text-primary/90">About IEEE</h3>
-             <ul className="mt-3 space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                    <Info className="h-5 w-5 flex-shrink-0 mt-1 text-primary" />
-                    <span>IEEE is the world's largest technical professional organization for the advancement of technology. Student membership offers access to a vast network of professionals, technical resources, and career development opportunities.</span>
-                </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="md:col-span-2 animate-fade-in-up animation-delay-400">
-          {aboutImage && (
-            <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl shadow-primary/20">
-                <Image
-                src={aboutImage.imageUrl}
-                alt={aboutImage.description}
-                fill
-                className="rounded-lg object-cover scale-110"
-                data-ai-hint={aboutImage.imageHint}
-                />
-            </div>
-          )}
-        </div>
+      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <Card className="animate-fade-in-up animation-delay-200">
+            <CardHeader className='items-center'>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-2">
+                    <Target className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-primary">Our Mission & Vision</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center text-muted-foreground">
+                Our mission is to foster core knowledge, leadership, and managerial skills among students. We aim to bridge the gap between academia and industry by providing a platform for students to interact with peers and professionals globally, ensuring they are well-prepared for their future careers.
+            </CardContent>
+        </Card>
+        <Card className="animate-fade-in-up animation-delay-400">
+             <CardHeader className='items-center'>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-2">
+                    <Landmark className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-primary">Our History</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center text-muted-foreground">
+                The IEEE Student Branch at IICT, MGM University was officially inaugurated on July 13, 2023. It was formed through the dedicated efforts of key faculty and student members who envisioned a community for tech enthusiasts to thrive.
+            </CardContent>
+        </Card>
+        <Card className="animate-fade-in-up animation-delay-600 md:col-span-2 lg:col-span-1">
+             <CardHeader className='items-center'>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-2">
+                    <Rocket className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-primary">About IEEE</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center text-muted-foreground">
+                 IEEE is the world's largest technical professional organization for the advancement of technology. Student membership offers access to a vast network of professionals, technical resources, and career development opportunities.
+            </CardContent>
+        </Card>
       </div>
       
       <div className="mt-16 animate-fade-in-up">
