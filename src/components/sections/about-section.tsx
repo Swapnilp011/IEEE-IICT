@@ -28,7 +28,7 @@ const stats = [
 const faculty = [
     {
         name: 'Prof. Dr Sharvari Tamane',
-        role: 'Professor and Head, UDICT, MGM University',
+        role: 'Director IICT MGM UNiversitty',
         imageUrl: 'https://i.pravatar.cc/150?u=drsharvaritamane',
         imageHint: 'professional headshot'
     },
