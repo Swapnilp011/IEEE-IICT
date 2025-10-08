@@ -171,6 +171,15 @@ export const mockGallery: GalleryAlbum[] = [
   },
   {
     id: '2',
+    title: 'Code A Thon',
+    category: 'Competition',
+    description: 'An intense coding marathon to challenge and showcase your programming skills.',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1PaUtqWqDfoZdXzXNhWvIX7wiw7Ulvc4o',
+    imageHint: 'coding marathon',
+    imageCount: 30,
+  },
+  {
+    id: '3',
     title: 'Py Quest',
     category: 'Competition',
     description: 'A quiz competition to test your knowledge of the Python programming language.',
@@ -179,7 +188,7 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 28,
   },
   {
-    id: '3',
+    id: '4',
     title: 'IEEE Day',
     category: 'Celebrations',
     description: 'Celebrating the global community of IEEE members and our shared passion for technology.',
@@ -188,7 +197,7 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 52,
   },
   {
-    id: '4',
+    id: '5',
     title: 'Industrial Visit',
     category: 'Tours',
     description: 'A visit to a leading tech company, giving students a glimpse into the professional world of engineering.',
@@ -197,7 +206,7 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 34,
   },
   {
-    id: '5',
+    id: '6',
     title: 'Guest Lectures',
     category: 'Seminars',
     description: 'Industry experts shared their knowledge and experience on a variety of cutting-edge topics.',
@@ -206,7 +215,7 @@ export const mockGallery: GalleryAlbum[] = [
     imageCount: 18,
   },
   {
-    id: '6',
+    id: '7',
     title: 'Outreach Program',
     category: 'Social',
     description: 'Engaging with the local community to promote STEM education and inspire the next generation of engineers.',
