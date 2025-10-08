@@ -196,13 +196,4 @@ export const mockGallery: GalleryAlbum[] = [
     imageHint: 'inauguration event',
     imageCount: 40,
   },
-  {
-    id: '7',
-    title: 'Outreach Program',
-    category: 'Social',
-    description: 'Engaging with the local community to promote STEM education and inspire the next generation of engineers.',
-    imageUrl: 'https://picsum.photos/seed/14/400/300',
-    imageHint: 'community outreach',
-    imageCount: 22,
-  },
 ];
