@@ -50,9 +50,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/50 pt-8 text-center text-sm">
+        <div className="mt-8 border-t border-border/50 pt-8 text-sm">
             <div className="mb-8">
-                <h4 className="font-headline text-lg font-semibold text-foreground mb-4">Proudly Affiliated With</h4>
+                <h4 className="font-headline text-lg font-semibold text-foreground mb-4 text-center">Proudly Affiliated With</h4>
                 <div className="flex justify-center items-center gap-8">
                     <Link href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer" className="relative h-12 w-28">
                         <Image src="https://upload.wikimedia.org/wikipedia/commons/2/21/IEEE_logo.svg" alt="IEEE Logo" fill className="object-contain" />
@@ -62,14 +62,16 @@ export default function Footer() {
                     </Link>
                 </div>
             </div>
-            <div className="flex justify-center space-x-6 mb-4">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-muted-foreground hover:text-primary">
-                  <Icon className="h-6 w-6" />
-                </Link>
-              ))}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p>&copy; {new Date().getFullYear()} IEEE Student Branch, IICT MGMU. All Rights Reserved.</p>
+              <div className="flex space-x-6">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-muted-foreground hover:text-primary">
+                    <Icon className="h-6 w-6" />
+                  </Link>
+                ))}
+              </div>
             </div>
-          <p>&copy; {new Date().getFullYear()} IEEE Student Branch, IICT MGMU. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
