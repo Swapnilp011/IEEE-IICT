@@ -57,15 +57,6 @@ export const mockEvents: Event[] = [
 
 export const mockTeam: TeamMember[] = [
   {
-    id: '9',
-    name: 'Vijaya Ahire',
-    role: 'Student Branch Counsellor',
-    bio: 'Guides the student branch with her experience and wisdom, ensuring alignment with academic goals.',
-    imageUrl: 'https://drive.google.com/uc?export=view&id=1yuDKwBVw1LnUdyTo64yaqIcdjWJa4_mZ',
-    imageHint: 'professional headshot',
-    linkedin: '#',
-  },
-  {
     id: '1',
     name: 'Basvaraj Sirasgaonkar',
     role: 'Chairperson',
