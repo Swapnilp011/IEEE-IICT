@@ -8,7 +8,7 @@ export const mockEvents: Event[] = [
     date: '2025-10-08',
     category: 'Competition',
     description: 'A UI/UX design competition to challenge your creativity and design skills.',
-    imageUrl: 'https://picsum.photos/seed/101/400/250',
+    imageUrl: 'https://community.nasscom.in/sites/default/files/media/images/What%20is%20UIUX%20Transformation%20and%20How%20Does%20it%20Benefit%20Businesses-04_0.jpg',
     imageHint: 'UI UX competition design',
     status: 'upcoming',
     registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfk6ZvV5KSmKO0tjC0oJChfHfsNkN-lg9J-ojfehm6sb-RlMw/viewform?usp=header',

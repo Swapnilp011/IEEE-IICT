@@ -58,6 +58,12 @@ pathname: '/**',
         hostname: 'drive.google.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'community.nasscom.in',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
