@@ -90,7 +90,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Palash Kale',
     role: 'Vice Chairperson',
     bio: 'Supports the chairperson and helps drive key initiatives within the student branch.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e29026704a',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1c3bzgGmm5pNwZ2s4FnaMnWcDc9tYaVra',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
