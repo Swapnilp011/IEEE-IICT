@@ -117,7 +117,7 @@ export const mockTeam: TeamMember[] = [
     name: 'Syed Zaid',
     role: 'Treasurer',
     bio: 'Oversees the financial health of the branch, managing budgets for events and activities.',
-    imageUrl: 'https://i.pravatar.cc/400?u=a042581f4e290267041',
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1ngkpF4vTAfelq8AE9LqYd9OrHN171-SQ',
     imageHint: 'professional headshot',
     linkedin: '#',
   },
