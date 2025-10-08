@@ -8,37 +8,27 @@ import { Card } from '@/components/ui/card';
 import { Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const TeamMemberCard = ({ member, size = 'default' }: { member: TeamMember, size?: 'default' | 'large' }) => {
-  const cardClasses = cn(
-    "group relative overflow-hidden rounded-lg border shadow-sm h-full transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1",
-    { 'w-full max-w-sm': size === 'default', 'w-full max-w-md': size === 'large' }
-  );
-
-  const imageContainerClasses = cn(
-    "aspect-square",
-    { 'sm:aspect-[4/5]': size === 'large' }
-  );
-
+const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
-    <Card className={cardClasses}>
-      <div className={imageContainerClasses}>
+    <Card className="group relative overflow-hidden rounded-lg border shadow-sm h-full transition-all duration-300 hover:shadow-primary/20 hover:-translate-y-1 w-full max-w-sm">
+      <div className="aspect-[4/5]">
         <Image
           src={member.imageUrl}
           alt={member.name}
-          width={size === 'large' ? 500 : 400}
-          height={size === 'large' ? 625 : 400}
+          width={400}
+          height={500}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
           data-ai-hint={member.imageHint}
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
         <div className="absolute bottom-0 left-0 right-0 p-4">
-          <h3 className={cn("font-headline font-bold text-white", size === 'large' ? 'text-xl' : 'text-lg')}>{member.name}</h3>
+          <h3 className="font-headline font-bold text-white text-lg">{member.name}</h3>
           <p className="text-sm text-primary-foreground/80">{member.role}</p>
         </div>
       </div>
       <div className="absolute inset-0 flex flex-col justify-end bg-white/95 dark:bg-black/90 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <h3 className={cn("font-headline font-bold text-primary", size === 'large' ? 'text-xl' : 'text-lg')}>{member.name}</h3>
+        <h3 className="font-headline font-bold text-primary text-lg">{member.name}</h3>
         <p className="text-sm text-foreground/80">{member.role}</p>
         <p className="mt-2 text-sm text-foreground/90 flex-grow">{member.bio}</p>
         <div className="mt-4 flex items-center space-x-4">
@@ -86,7 +76,7 @@ export default function TeamSection() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {leadership.map((member) => (
                     <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} size="large" />
+                        <TeamMemberCard member={member} />
                     </div>
                 ))}
             </div>
@@ -98,7 +88,7 @@ export default function TeamSection() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {coreCommittee.map((member) => (
                     <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} size="large" />
+                        <TeamMemberCard member={member} />
                     </div>
                 ))}
             </div>
@@ -110,7 +100,7 @@ export default function TeamSection() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 {technicalHeads.map((member) => (
                     <div key={member.id} className="h-full">
-                        <TeamMemberCard member={member} size="large" />
+                        <TeamMemberCard member={member} />
                     </div>
                 ))}
             </div>
