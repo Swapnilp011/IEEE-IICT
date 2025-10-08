@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { ArrowRight, Calendar } from 'lucide-react';
 import type { Event } from '@/lib/types';
 import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 const EventCard = ({ event }: { event: Event }) => (
     <Card className="group w-full max-w-sm overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/20 h-full flex flex-col">
@@ -69,7 +70,10 @@ export default function EventsSection() {
           <TabsTrigger value="past">Past Events</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming" className="mt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          <div className={cn(
+            "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8",
+            upcomingEvents.length < 3 && "lg:grid-cols-2 lg:flex lg:justify-center"
+            )}>
             {upcomingEvents.map((event, index) => (
               <div key={event.id} className={`animate-fade-in-up animation-delay-${index * 200 + 400}`}>
                 <EventCard event={event} />
