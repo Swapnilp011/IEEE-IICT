@@ -1,5 +1,5 @@
 
-import AdminContentForm from '@/app/admin/admin-content-form';
+import AdminForm from '@/app/admin/admin-form';
 
 export default function AdminSection() {
   return (
@@ -7,14 +7,14 @@ export default function AdminSection() {
       <div className="max-w-3xl mx-auto">
         <div className="text-center">
           <h1 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
-            Admin: AI Content Generator
+            Admin Dashboard
           </h1>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Streamline content creation for events and team profiles. Provide details and let AI suggest a title and description.
+            Create and manage content for the website. Add new events or team members.
           </p>
         </div>
         <div className="mt-12">
-          <AdminContentForm />
+          <AdminForm />
         </div>
       </div>
     </div>

@@ -1,25 +1,33 @@
 
 'use client';
 
-import { useAuth } from '@/firebase';
+import { useUser } from '@/firebase';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
 import { PartyPopper } from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function JoinPage() {
-  const { user, loading } = useAuth();
+  const { user, loading } = useUser();
   const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
 
   if (loading) {
     return <div className="flex justify-center items-center h-screen">Loading...</div>;
   }
-
+  
   if (!user) {
-    router.push('/login');
     return null;
   }
+
 
   const handleJoin = () => {
     // In a real app, this would trigger a Firestore write to add the user to a 'members' collection
@@ -36,7 +44,7 @@ export default function JoinPage() {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
             <PartyPopper className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle>Welcome, {user.displayName || 'Guest'}!</CardTitle>
+          <CardTitle>Welcome, {user.displayName || user.email}!</CardTitle>
           <CardDescription>You are one step away from becoming a member of the IEEE Student Branch at IICT, MGM University.</CardDescription>
         </CardHeader>
         <CardContent>

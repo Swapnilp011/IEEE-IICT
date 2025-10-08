@@ -2,10 +2,9 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { LogIn, LogOut, Menu, User as UserIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
 import { useUser } from '@/firebase';
 
 import { Button } from '@/components/ui/button';
@@ -36,6 +35,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [activeLink, setActiveLink] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -101,10 +101,11 @@ export default function Header() {
   };
 
   const handleLogout = async () => {
-    const auth = getAuth();
     try {
-      await signOut(auth);
+      await fetch('/api/auth/logout', { method: 'POST' });
       toast({ title: 'Logged out successfully.' });
+      // Force a full page reload to clear user session from client
+      window.location.href = '/'; 
     } catch (error: any) {
       toast({
         variant: 'destructive',
@@ -144,7 +145,7 @@ export default function Header() {
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">{user.displayName}</p>
+                <p className="text-sm font-medium leading-none">{user.displayName || user.email}</p>
                 <p className="text-xs leading-none text-muted-foreground">
                   {user.email}
                 </p>
@@ -152,9 +153,9 @@ export default function Header() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link href="/join">
+              <Link href="/admin">
                 <UserIcon className="mr-2 h-4 w-4" />
-                <span>Member Area</span>
+                <span>Admin Dashboard</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={handleLogout}>
