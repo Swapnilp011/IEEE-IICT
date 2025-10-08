@@ -16,9 +16,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
             <Logo />
-            <p className="text-sm">
-              Fostering technological innovation and excellence.
-            </p>
           </div>
 
           <div>
